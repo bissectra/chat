@@ -6,6 +6,25 @@ Real-time chat interface where multiple users can interact with each other by se
 
 As a MVP(Minimum Viable Product) you can focus on building the Chat interface. Real-time functionality can be added later (the bonus features).
 
+a. Apresentação -> Caio fala
+b. Features -> Arthur fala
+1. Login / Cadastro
+  1.1. FrontEnd: Panzanha
+  1.2. BackEnd: Panzanha
+2.Página de conversas
+  2.1. FrontEnd: Pagode e Bissetriz
+  2.2. BackEnd: Bissetriz
+3. Página de chat (input)
+  3.1. FrontEnd: Bissetriz
+  3.2. BackEnd: Pagode e Panzanha
+c. Ferramentas -> Rafael fala
+-React
+-Node
+-MongoDB e Mongoose
+-pensando em usar Socket.io
+-Biblioteca de UI
+-Login pelo Google
+
 ## User Stories
 
 -   [ ] User is prompted to enter a username when he visits the chat app. The username will be stored in the application
@@ -14,10 +33,10 @@ As a MVP(Minimum Viable Product) you can focus on building the Chat interface. R
 
 ## Bonus features
 
+-   [ ] Login Social com o Google
 -   [ ] The messages will be visible to all the Users that are in the chat app (using WebSockets)
 -   [ ] When a new User joins the chat, a message is displayed to all the existing Users
 -   [ ] Messages are saved in a database
--   [ ] User can send images, videos and links which will be displayed properly
 -   [ ] User can select and send an emoji
 -   [ ] Users can chat in private
 -   [ ] Users can join `channels` on specific topics
