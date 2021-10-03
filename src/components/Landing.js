@@ -1,6 +1,7 @@
 import './Landing.css'
 import React from "react";
 import LoginCard from './LoginCard';
+import SignUpCard from './SignUpCard.js';
 
 class Landing extends React.Component {
     constructor(props) {
@@ -23,8 +24,7 @@ class Landing extends React.Component {
         } else if (this.state.page === 'signUp') {
             inner = (
                 <div className="main">
-                    {/* <SignUpCard /> */}
-                    SignUpCard
+                    <SignUpCard />
                 </div>
             )
         }

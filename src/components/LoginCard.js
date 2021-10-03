@@ -17,8 +17,8 @@ class LoginCard extends React.Component {
             <div className="Card">
                 <h1>Chat App</h1>
                 <form onSubmit={this.login}>
-                    <input type="text" id="userame" name="userame" placeholder="username/email"></input><br />
-                    <input type="password" id="password" name="password" placeholder="password"></input><br />
+                    <input type="text" id="usernameOrEmail" name="usernameOrEmail" placeholder="Username or Email"></input><br />
+                    <input type="password" id="password" name="password" placeholder="Password"></input><br />
                     <div id="login-button"><input type="submit" value="Login" /></div>
                 </form>
                 <span id="unregistered-user-text">
