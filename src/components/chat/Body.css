@@ -1,0 +1,21 @@
+.main-chat{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-frame{
+    background-color: white;
+    width: 80%;
+    min-height: 90vh;
+    border-radius: 1rem;
+    display: flex;
+}
+
+.left-frame{
+    flex: 1;
+}
+.right-frame{
+    flex: 2; /*possui o dobro de espaço em relação ao quadro da esquerda*/
+}

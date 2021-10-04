@@ -1,5 +1,6 @@
 import './App.css';
-import Landing from './components/Landing';
+import Landing from './components/landingpage/Landing';
+import Body from './components/chat/Body';
 import React from 'react';
 
 class App extends React.Component {
@@ -10,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Landing initialPage={'login'} />
+        <Landing initialPage={'chat'} />
       </div>
     );
   }

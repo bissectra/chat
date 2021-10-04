@@ -1,6 +1,7 @@
 import './Landing.css'
 import React from "react";
 import LoginCard from './LoginCard';
+import Body from '../chat/Body';
 import SignUpCard from './SignUpCard.js';
 
 class Landing extends React.Component {
@@ -27,6 +28,9 @@ class Landing extends React.Component {
                     <SignUpCard />
                 </div>
             )
+        }
+        else if(this.state.page == 'chat'){
+            inner = (<Body />)
         }
         return (
             <div className="wrapper">
