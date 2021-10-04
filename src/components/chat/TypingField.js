@@ -14,8 +14,8 @@ class TypingField extends React.Component {
                 </div>
                 <div className="input-field">
                     <form className="inputs">
-                        <input className="typing-bar" type="text" name="input-text" placeholder="Digite sua mensagem"></input>
-                        <input className="send-button" type="submit" name="input-text"></input>
+                        <input className="typing-bar" type="text" name="input-text" placeholder="Type your message"></input>
+                        <input className="send-button" type="submit" name="input-text" value="Send"></input>
                     </form>
                 </div>
             </div>

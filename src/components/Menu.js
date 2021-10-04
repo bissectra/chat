@@ -1,4 +1,4 @@
-import './menu.css'
+import './Menu.css'
 import React from 'react'
 
 class Menu extends React.Component {

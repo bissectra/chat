@@ -9,7 +9,7 @@ class RightFrame extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contactClicked: false,
+            contactClicked: true,
             messages: []
         }
     }

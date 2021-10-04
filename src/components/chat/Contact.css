@@ -48,7 +48,7 @@
 }
 
 .unread-counter {
-    border-radius: 60% 0;
+    border-radius: 2vh;
     padding: 0 0.5vw;
     width: min-content;
     background-color: var(--primaryColor);
