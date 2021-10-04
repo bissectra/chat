@@ -3,18 +3,18 @@ import React from "react";
 
 class LeftFrame extends React.Component {
     render() {
-        return(
+        return (
             <div>
                 <div className="user-profile">
-                Perfil de usuário
+                    Perfil de usuário
                 </div>
                 <div className="search-bar">
-                Barra de pesquisa
+                    Barra de pesquisa
                 </div>
                 <div className="contacts">
-                Contatos
+                    Contatos
                 </div>
-            </div>     
+            </div>
         )
     }
 }

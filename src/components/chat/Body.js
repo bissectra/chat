@@ -1,19 +1,19 @@
 import './Body.css'
-import RightFrame from './rightframe/RightFrame';
-import LeftFrame from './leftframe/LeftFrame';
+import RightFrame from './RightFrame';
+import LeftFrame from './LeftFrame';
 import React from "react";
 
 class Body extends React.Component {
     render() {
-        return(
+        return (
             <div className="wrapper">
                 <div className="main-chat">
                     <div className="chat-frame">
                         <div className="left-frame">
-                            <LeftFrame/>
+                            <LeftFrame />
                         </div>
                         <div className="right-frame">
-                            <RightFrame/>
+                            <RightFrame />
                         </div>
                     </div>
                 </div>
