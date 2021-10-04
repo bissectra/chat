@@ -5,7 +5,11 @@ import Contact from "./Contact";
 class Contacts extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = { contacts: [] }
+    }
+
+    loadContacts() {
+        this.setState({
             contacts: [
                 <Contact username={"user1"} />,
                 <Contact username={"user2"} />,
@@ -16,14 +20,26 @@ class Contacts extends React.Component {
                 <Contact username={"user7"} />,
                 <Contact username={"user8"} />,
             ]
-        };
+        })
+    }
+
+    componentDidMount() {
+        this.loadContacts();
+    }
+
+    contactClicked(index){
+        const contactUsername = this.state.contacts[index].props.username;
+        console.log("contact '" + contactUsername + "' was clicked")
     }
 
     render() {
         return (
             <div className="contacts">
                 {this.state.contacts.map((contact, index) => (
-                    <div className="contact" key={index}>{contact}</div>
+                    <div className="contact"
+                        key={index}
+                        onClick={() => this.contactClicked(index)}
+                    >{contact}</div>
                 ))}
             </div>
         )

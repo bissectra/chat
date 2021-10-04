@@ -14,11 +14,36 @@ class SignUpCard extends React.Component {
 
     render() {
         return (
-            <div className="Card">
+            <div>
                 <h1>Sign Up</h1>
                 <form onSubmit={this.login}>
-                    <input type="text" id="username" name="username" placeholder="Username"></input><br />
                     <input type="email" id="email" name="email" placeholder="Email"></input><br />
+                    <input type="text" id="username" name="username" placeholder="Username"></input><br />
+                    <div id="sex-input" className="boxed">
+                        <div id="sex-input-title">
+                            <label for="sex-input" style={{ color: '#929292' }}>
+                                Sex
+                            </label>
+                        </div>
+                        <div id="sex-input-content" className="radio-button-group">
+                            <div>
+                                <input type="radio" id="sexFeminine" name="sex" placeholder="sex" />
+                                <label for="sexFeminine">Feminine</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sexMasculine" name="sex" placeholder="sex" />
+                                <label for="sexMasculine">Masculine</label><br />
+                            </div>
+                            <div>
+                                <input type="radio" id="sexNonBinary" name="sex" placeholder="sex" />
+                                <label for="sexNonBinary">Non-binary</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sexOther" name="sex" placeholder="sex" />
+                                <label for="sexOther">Other</label>
+                            </div>
+                        </div>
+                    </div>
                     <input type="password" id="password" name="password" placeholder="Password" required></input><br />
                     <input type="password" id="password2" name="password2" placeholder="Confirm Password" required></input><br />
                     <div id="login-button"><input type="submit" value="Sign Up" /></div>

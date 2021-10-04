@@ -21,7 +21,7 @@ class Contact extends React.Component {
     }
 
     getUserSex() {
-        console.log('Not Implemented');
+        console.log('function "getUserSex()" Not Implemented');
         return 'M'
     }
 

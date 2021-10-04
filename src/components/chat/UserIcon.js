@@ -23,7 +23,6 @@ class UserIcon extends React.Component {
         let icon = document.getElementById('icon-' + seed);
         const sprites = this.state.sprites;
         const url = `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`
-        console.log(url)
         icon.style.backgroundImage = url;
     }
 
