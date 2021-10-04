@@ -5,19 +5,26 @@ import UserIcon from "./UserIcon"
 class Contact extends React.Component {
     constructor(props) {
         super(props)
-        let now = new Date();
+        const now = new Date();
         this.state = {
-            username: props.username,
+            contactUsername: props.username,
+            unreadCounter: Math.floor(Math.random() * 1000),
             lastMessage: {
-                authoredByCurrentUser: false,
-                content: 'Test Message',
+                authoredByCurrentUser: [false, true][Math.floor(Math.random() * 2)],
+                content: 'My favorite color is ' + ['Red', 'Green', 'Blue'][Math.floor(Math.random() * 3)] + ' :)',
                 timeStamp: now,
-            }
+                status: ['sending', 'sent', 'received'][Math.floor(Math.random() * 3)]
+            },
         }
     }
 
     formatDate(date) {
-        return date.toLocaleString("pt-BR")
+        const hh_mm = date.toLocaleTimeString("pt-BR").slice(0, -3)
+        return hh_mm;
+    }
+
+    formatMessage() {
+        return this.state.lastMessage.content;
     }
 
     getUserSex() {
@@ -26,26 +33,50 @@ class Contact extends React.Component {
     }
 
     render() {
+        const status = this.state.lastMessage.status;
+        let statusClassName = "status-icon";
+        switch (status) {
+            case "sent":
+                statusClassName += " single-tick";
+                break;
+            case "received":
+                statusClassName += " double-tick";
+                break;
+            default:
+                statusClassName += " clock";
+                break;
+        }
+        let statusDiv = <div className={statusClassName}></div>
+        if (!this.state.lastMessage.authoredByCurrentUser) {
+            statusDiv = <div></div>
+        }
         return (
             <div>
                 <div className="contact-wrapper">
                     <div className="contact-icon-section">
                         <div className="user-icon">
                             <UserIcon
-                                username={this.state.username}
+                                username={this.state.contactUsername}
                                 sex={this.getUserSex(this.username)}
                             />
                         </div>
                     </div>
                     <div className="contact-text-section">
                         <div className="contact-title">
-                            {this.state.username}
+                            {this.state.contactUsername}
                         </div>
                         <div className="contact-message">
-                            Message
+                            <div>
+                                {statusDiv} {this.formatMessage()}
+                            </div>
                         </div>
                     </div>
-                    {/* {this.formatDate(this.state.lastMessage.timeStamp)} */}
+                    <div className="meta">
+                        <div className="date">
+                            {this.formatDate(this.state.lastMessage.timeStamp)}
+                        </div>
+                        <div className="unread-counter" >{this.state.unreadCounter}</div>
+                    </div>
                 </div>
                 <hr />
             </div>
