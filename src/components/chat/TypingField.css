@@ -1,0 +1,53 @@
+.main-typing {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emojis {
+    flex: 1;
+}
+
+.input-field {
+    flex: 9;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button {
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    flex: 1;
+    height: 30px;
+}
+
+.send-button:hover {
+    background-color: var(--primaryColorVariant);
+}
+
+.typing-bar {
+    flex: 9;
+    height: 40px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.emoji-image {
+    width: 40%;
+}
+
+.emoji-image:hover {
+    cursor: pointer;
+    background-color: var(--secondaryColorLight);
+}

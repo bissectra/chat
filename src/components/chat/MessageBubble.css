@@ -1,0 +1,27 @@
+.message {
+    margin: 1vw;
+    background-color: lightyellow;
+    border-radius: 1vw;
+    position: relative;
+    font-size: 14px;
+    max-width: 70%;
+}
+
+.not-mine.message {
+    margin-right: auto;
+}
+
+.mine.message {
+    margin-left: auto;
+}
+
+.talktext {
+    padding: 1em;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.talktext p {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
