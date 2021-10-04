@@ -7,13 +7,14 @@ class Contacts extends React.Component {
         super(props)
         this.state = {
             contacts: [
-                <Contact username={"testUser1"} />,
-                <Contact username={"testUser2"} />,
-                <Contact username={"testUser3"} />,
-                <Contact username={"testUser4"} />,
-                <Contact username={"testUser5"} />,
-                <Contact username={"testUser6"} />,
-                <Contact username={"testUser7"} />,
+                <Contact username={"user1"} />,
+                <Contact username={"user2"} />,
+                <Contact username={"user3"} />,
+                <Contact username={"user4"} />,
+                <Contact username={"user5"} />,
+                <Contact username={"user6"} />,
+                <Contact username={"user7"} />,
+                <Contact username={"user8"} />,
             ]
         };
     }
@@ -21,7 +22,9 @@ class Contacts extends React.Component {
     render() {
         return (
             <div className="contacts">
-                {this.state.contacts.map(contact => <div className="contact">{contact}</div>)}
+                {this.state.contacts.map((contact, index) => (
+                    <div className="contact" key={index}>{contact}</div>
+                ))}
             </div>
         )
     }

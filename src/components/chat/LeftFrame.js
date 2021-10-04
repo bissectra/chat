@@ -22,8 +22,11 @@ class LeftFrame extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="search-bar">
-                    Barra de pesquisa
+                <div className="search-bar-wrapper">
+                    <div className="search-bar">
+                        Barra de pesquisa
+                    </div>
+                    <hr />
                 </div>
                 <Contacts className="contacts" />
             </div>

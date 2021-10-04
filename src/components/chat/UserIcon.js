@@ -1,5 +1,5 @@
 import './UserIcon.css'
-import '../../utils/hash';
+import hashCode from '../../utils/hash';
 
 import React from 'react'
 
@@ -10,7 +10,7 @@ class UserIcon extends React.Component {
         const sprites = sex === 'M' ? 'male' : sex === 'F' ? 'female' : 'human';
         this.state = {
             sprites: sprites,
-            seed: String(Math.abs(props.username.hashCode())),
+            seed: String(Math.abs(hashCode(props.username))),
         }
     }
 
@@ -23,6 +23,7 @@ class UserIcon extends React.Component {
         let icon = document.getElementById('icon-' + seed);
         const sprites = this.state.sprites;
         const url = `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`
+        console.log(url)
         icon.style.backgroundImage = url;
     }
 

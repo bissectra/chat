@@ -1,5 +1,35 @@
-hr {
-    margin: 0;
-    border: none;
-    border-top: 1px solid white;
+.contact-wrapper {
+    height: 11vh;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+
+.contact-wrapper:hover {
+    background-color: var(--primaryColorVariant);
+}
+
+.contact-icon-section {
+    display: flex;
+}
+
+.user-icon {
+    margin: auto 1vw;
+}
+
+.contact-text-section {
+    width: 100%;
+    margin: auto 0;
+    text-align: left;
+}
+
+.contact-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--textColorLightVariant);
+}
+
+.contact-message {
+    font-size: 14px;
+    color: var(--textColorLight);
 }

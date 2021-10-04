@@ -28,13 +28,26 @@ class Contact extends React.Component {
     render() {
         return (
             <div>
-                <UserIcon
-                    username={this.state.username}
-                    sex={this.getUserSex(this.username)}
-                />
-                {this.state.username}<br />
-                {this.formatDate(this.state.lastMessage.timeStamp)}
-                <hr/>
+                <div className="contact-wrapper">
+                    <div className="contact-icon-section">
+                        <div className="user-icon">
+                            <UserIcon
+                                username={this.state.username}
+                                sex={this.getUserSex(this.username)}
+                            />
+                        </div>
+                    </div>
+                    <div className="contact-text-section">
+                        <div className="contact-title">
+                            {this.state.username}
+                        </div>
+                        <div className="contact-message">
+                            Message
+                        </div>
+                    </div>
+                    {/* {this.formatDate(this.state.lastMessage.timeStamp)} */}
+                </div>
+                <hr />
             </div>
         )
     }
