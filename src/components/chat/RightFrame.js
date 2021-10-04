@@ -9,7 +9,7 @@ class RightFrame extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contactClicked: true,
+            contactClicked: false,
             messages: []
         }
     }
@@ -49,12 +49,11 @@ class RightFrame extends React.Component {
     render() {
         if (!this.state.contactClicked) {
             return (
-                <div className='right-frame-wrapper'>
+                <div className='right-frame-wrapper empty'>
                     <div className="right-header"></div>
                     <div className="messages-field">
-                        Clique em uma conversa.
+                        Choose a contact to start chatting!
                     </div>
-                    <div className="typing-field"></div>
                 </div>
             )
         }
