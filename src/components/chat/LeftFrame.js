@@ -1,6 +1,7 @@
 import './LeftFrame.css'
 import React from "react";
 import UserIcon from './UserIcon';
+import Contacts from './Contacts';
 
 class LeftFrame extends React.Component {
     menuIconClicked(e) {
@@ -12,7 +13,7 @@ class LeftFrame extends React.Component {
         return (
             <div>
                 <div className="left-header">
-                    <UserIcon />
+                    <UserIcon sex={'NB'} username={"test123"} />
                     <div id="menu-icon" className="menu-icon" onClick={this.menuIconClicked}>
                         <div className="kebab">
                             <div className="circle"></div>
@@ -24,9 +25,7 @@ class LeftFrame extends React.Component {
                 <div className="search-bar">
                     Barra de pesquisa
                 </div>
-                <div className="contacts">
-                    Contatos
-                </div>
+                <Contacts className="contacts" />
             </div>
         )
     }

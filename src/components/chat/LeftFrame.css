@@ -8,6 +8,9 @@
 
 .search-bar {
     background-color: var(--primaryColorVariant);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 8vh;
 }
 
@@ -26,7 +29,6 @@
     align-items: center;
     width: inherit;
     height: 3vh;
-    /* background-color: rgba(0, 255, 0, 0.13); */
 }
 
 .menu-icon {
