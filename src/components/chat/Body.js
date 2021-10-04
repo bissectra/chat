@@ -4,11 +4,6 @@ import LeftFrame from './leftframe/LeftFrame';
 import React from "react";
 
 class Body extends React.Component {
-    constructor(props) {
-        super(props)
-        /* this.state = { 'page': props.initialPage } */
-    }
-
     render() {
         return(
             <div className="wrapper">

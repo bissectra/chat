@@ -2,11 +2,6 @@ import './LeftFrame.css'
 import React from "react";
 
 class LeftFrame extends React.Component {
-    constructor(props) {
-        super(props)
-        /* this.state = { 'page': props.initialPage } */
-    }
-
     render() {
         return(
             <div>

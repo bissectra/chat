@@ -28,8 +28,7 @@ class Landing extends React.Component {
                     <SignUpCard />
                 </div>
             )
-        }
-        else if(this.state.page == 'chat'){
+        } else if (this.state.page === 'chat') {
             inner = (<Body />)
         }
         return (

@@ -2,11 +2,6 @@ import './RightFrame.css'
 import React from "react";
 
 class RightFrame extends React.Component {
-    constructor(props) {
-        super(props)
-        /* this.state = { 'page': props.initialPage } */
-    }
-
     render() {
         return(
             <div>
