@@ -1,9 +1,9 @@
-import './Body.css'
-import RightFrame from './RightFrame';
-import LeftFrame from './LeftFrame';
+import './ChatBody.css'
 import React from "react";
+import LeftFrame from './LeftFrame';
+import RightFrame from './RightFrame';
 
-class Body extends React.Component {
+class ChatBody extends React.Component {
     render() {
         return (
             <div className="wrapper">
@@ -22,4 +22,4 @@ class Body extends React.Component {
     }
 }
 
-export default Body;
+export default ChatBody;
