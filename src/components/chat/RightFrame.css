@@ -1,4 +1,18 @@
+.right-frame-wrapper {
+    position: relative;
+    height: 100%;
+}
+
 .right-header {
     background-color: var(--secondaryColor);
     min-height: 9vh;
+}
+
+.typing-field {
+    background-color: var(--secondaryColorVariant);
+    min-height: 10vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
