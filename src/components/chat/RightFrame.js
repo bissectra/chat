@@ -5,6 +5,7 @@ class RightFrame extends React.Component {
     render() {
         return (
             <div>
+                <div className="right-header"></div>
                 <div className="messages-field">
                     Campo de mensagens
                 </div>

@@ -7,17 +7,18 @@
 
 .chat-frame {
     background-color: white;
-    width: 80%;
-    min-height: 90vh;
+    min-width: 100vw;
+    min-height: 100vh;
     border-radius: 1rem;
     display: flex;
 }
 
 .left-frame {
-    flex: 1;
+    background-color: var(--primaryColorLight);
+    flex: 3;
 }
 
 .right-frame {
-    flex: 2;
-    /*possui o dobro de espaço em relação ao quadro da esquerda*/
+    background-color: var(--secondaryColorLight);
+    flex: 7;
 }

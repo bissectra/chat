@@ -5,8 +5,10 @@ class LeftFrame extends React.Component {
     render() {
         return (
             <div>
-                <div className="user-profile">
-                    Perfil de usuário
+                <div className="left-header">
+                    <div className="user-profile">
+                        Perfil de usuário
+                    </div>
                 </div>
                 <div className="search-bar">
                     Barra de pesquisa

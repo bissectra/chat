@@ -1,0 +1,4 @@
+.left-header {
+    background-color: var(--primaryColor);
+    min-height: 9vh;
+}

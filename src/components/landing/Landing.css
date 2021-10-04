@@ -22,17 +22,16 @@
     position: absolute;
     min-width: 100vw;
     z-index: -100;
-    background-color: magenta;
 }
 
 .background-top {
     position: relative;
     min-height: 35vh;
-    background-color: maroon;
+    background-color: var(--primaryColor);
 }
 
 .background-bottom {
     position: relative;
     min-height: 65vh;
-    background-color: orange;
+    background-color: var(--secondaryColor);
 }

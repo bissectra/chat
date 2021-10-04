@@ -1,4 +1,5 @@
 import './App.css';
+import './colors.css'
 import Landing from './components/landing/Landing';
 import React from 'react';
 import ChatBody from './components/chat/ChatBody';
