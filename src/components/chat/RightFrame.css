@@ -21,7 +21,7 @@
 }
 
 .messages-field {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 81vh;
     display: flex;
     flex-direction: column;

@@ -18,7 +18,7 @@ class LeftFrame extends React.Component {
 
     loadContacts() {
         this.setState({
-            contacts: [...Array(8).keys()].map(key => <Contact username={"user" + key} />)
+            contacts: [...Array(8).keys()].map(key => <Contact username={"user" + (key + 1)} />)
         })
     }
 
