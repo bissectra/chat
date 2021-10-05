@@ -27,7 +27,6 @@ class ChatBody extends React.Component {
     render() {
         const rightFrameContact = this.state.selected !== -1 ?
             this.state.contacts[this.state.selected].props.username : '';
-        console.log('rfc', rightFrameContact);
         return (
             <div className="main-chat">
                 <div className="chat-header"></div>

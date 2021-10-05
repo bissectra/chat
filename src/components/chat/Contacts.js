@@ -3,8 +3,6 @@ import React from "react";
 
 class Contacts extends React.Component {
     contactClicked(index) {
-        const contactUsername = this.props.contacts[index].props.username;
-        console.log("contact '" + contactUsername + "' was clicked");
         this.props.selectContactHandler(index);
     }
 

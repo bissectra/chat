@@ -10,27 +10,22 @@ class UserIcon extends React.Component {
         const sprites = sex === 'M' ? 'male' : sex === 'F' ? 'female' : 'human';
         this.state = {
             sprites: sprites,
-            seed: String(Math.abs(hashCode(props.username))),
         }
     }
 
-    componentDidMount() {
-        this.loadIcon();
+    getSeed() {
+        const seed = String(Math.abs(hashCode((this.props.username))))
+        return seed;
     }
 
-    loadIcon() {
-        const seed = this.state.seed;
-        let icon = document.getElementById('icon-' + seed);
+    getUrl() {
+        const seed = this.getSeed();
         const sprites = this.state.sprites;
-        const url = `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`
-        icon.style.backgroundImage = url;
+        return `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`
     }
 
     render() {
-        const seed = this.state.seed
-        return (
-            <div id={"icon-" + seed}></div>
-        )
+        return <div id="icon-" style={{ backgroundImage: this.getUrl() }}></div>
     }
 }
 
