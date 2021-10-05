@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIsLogged: true,
+      userIsLogged: false,
     }
   }
 
@@ -20,7 +20,7 @@ class App extends React.Component {
     if (!this.state.userIsLogged) {
       return (
         <div className="App">
-          <Landing initialPage={'login'} />
+          <Landing initialPage={'signUp'} />
         </div>
       );
     }
