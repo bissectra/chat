@@ -1,35 +1,20 @@
 import './Contacts.css'
 import React from "react";
-import Contact from "./Contact";
 
 class Contacts extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { contacts: [] }
+        this.state = { contacts: props.contacts }
     }
 
-    loadContacts() {
-        this.setState({
-            contacts: [
-                <Contact username={"user1"} />,
-                <Contact username={"user2"} />,
-                <Contact username={"user3"} />,
-                <Contact username={"user4"} />,
-                <Contact username={"user5"} />,
-                <Contact username={"user6"} />,
-                <Contact username={"user7"} />,
-                <Contact username={"user8"} />,
-            ]
-        })
-    }
-
-    componentDidMount() {
-        this.loadContacts();
-    }
-
-    contactClicked(index){
+    contactClicked(index) {
         const contactUsername = this.state.contacts[index].props.username;
         console.log("contact '" + contactUsername + "' was clicked")
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        nextState.contacts = nextProps.contacts;
+        return true;
     }
 
     render() {

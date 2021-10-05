@@ -64,7 +64,7 @@ class RightFrame extends React.Component {
                     <Menu color={'secondary'} />
                 </div>
                 <div className="messages-field">
-                    {this.state.messages}
+                    {this.state.messages.map((message, index) => <span key={index}>{message}</span>)}
                 </div>
                 <div className="typing-field">
                     <TypingField />
