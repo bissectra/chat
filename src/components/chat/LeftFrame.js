@@ -14,7 +14,11 @@ class LeftFrame extends React.Component {
                     <Menu color={'primary'} />
                 </div>
                 <Input />
-                <Contacts />
+                <Contacts
+                    contacts={this.props.contacts}
+                    selected={this.props.selected}
+                    selectContactHandler={this.props.selectContactHandler}
+                />
             </div>
         )
     }
