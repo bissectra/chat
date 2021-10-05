@@ -15,13 +15,14 @@
     margin-left: auto;
 }
 
-.talktext {
-    padding: 1em;
-    text-align: left;
-    word-wrap: break-word;
+.message-text {
+    padding: 0.7em;
 }
 
-.talktext p {
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
+.mine.message>.message-text {
+    text-align: right;
+}
+
+.not-mine.message>.message-text {
+    text-align: left;
 }

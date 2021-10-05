@@ -2,3 +2,7 @@
   text-align: center;
   margin: 0;
 }
+
+.App * {
+  scrollbar-width: thin;
+}

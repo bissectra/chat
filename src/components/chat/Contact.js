@@ -29,7 +29,7 @@ class Contact extends React.Component {
 
     getUserSex() {
         console.log('function "getUserSex()" Not Implemented');
-        return 'M'
+        return 'NB';
     }
 
     render() {
@@ -52,6 +52,7 @@ class Contact extends React.Component {
         }
         return (
             <div>
+                <hr />
                 <div className="contact-wrapper">
                     <div className="contact-icon-section">
                         <div className="user-icon">
@@ -78,7 +79,6 @@ class Contact extends React.Component {
                         <div className="unread-counter" >{this.state.unreadCounter}</div>
                     </div>
                 </div>
-                <hr />
             </div>
         )
     }
