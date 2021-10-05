@@ -1,5 +1,4 @@
 import './TypingField.css'
-import App from '../../App'
 import React from "react";
 
 class TypingField extends React.Component {
@@ -12,13 +11,11 @@ class TypingField extends React.Component {
     }
 
     handleInputChange = event => {
-        console.log("oi")
         this.setState({text: event.target.value})
-        //this.props.onMessagesChange(event.target.value)
     }
 
     handleSendMessage = () => {
-        if(this.state.text != ""){
+        if(this.state.text !== ""){
             this.props.handleMessagesChanged(this.state.text)
             this.setState({text: ""})
         }

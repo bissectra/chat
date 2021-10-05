@@ -28,7 +28,7 @@ class RightFrame extends React.Component {
                     <MessageBubble mine={false} text={"Hi, My name is " + this.state.contact + "."} />,
                     <MessageBubble mine={true} text={"Hello, I'm " + this.state.me + " :)"} />,
                 ],
-                ...[...Array(20).keys()].map(key => <MessageBubble mine={key % 2 == 1} text={"test message #" + (key + 1)} />),
+                ...[...Array(20).keys()].map(key => <MessageBubble mine={key % 2 === 1} text={"test message #" + (key + 1)} />),
                 ...[
                     <MessageBubble mine={false} text={longText} />,
                     <MessageBubble mine={true} text={"This message contains line breaks.\nThis sentence should be below."} />,

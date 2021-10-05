@@ -8,7 +8,6 @@ import Input from '../Input';
 class LeftFrame extends React.Component {
     constructor(props) {
         super(props)
-        console.log(props);
         this.state = {
             contacts: props.contacts,
             selected: props.selected,

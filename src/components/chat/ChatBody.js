@@ -25,7 +25,6 @@ class ChatBody extends React.Component {
     }
 
     render() {
-        console.log(this.state.selectedContactIndex);
         return (
             <div className="main-chat">
                 <div className="chat-header"></div>
