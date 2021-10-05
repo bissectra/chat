@@ -10,9 +10,9 @@ class RightFrame extends React.Component {
         super(props)
         this.state = {
             contactClicked: true,
-            contact: props.contact,
-            me: props.me,
-            messages: []
+            contact: '<contact>',
+            me: '<me>',
+            messages: [],
         }
     }
 
@@ -43,7 +43,7 @@ class RightFrame extends React.Component {
     handleMessagesChanged = (message) => {
         let newMessages = this.state.messages;
         newMessages.push(<MessageBubble mine={true} text={message} />);
-        this.setState({ messages: newMessages}, () => {
+        this.setState({ messages: newMessages }, () => {
             let messagesField = document.getElementsByClassName("messages-field");
             messagesField[0].scrollTo(0, messagesField[0].scrollHeight);
         });
@@ -71,7 +71,7 @@ class RightFrame extends React.Component {
                     {this.state.messages.map((message, index) => <span key={index}>{message}</span>)}
                 </div>
                 <div className="typing-field">
-                    <TypingField handleMessagesChanged={this.handleMessagesChanged}/>
+                    <TypingField handleMessagesChanged={this.handleMessagesChanged} />
                 </div>
             </div>
         )

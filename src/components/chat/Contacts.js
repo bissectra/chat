@@ -1,24 +1,29 @@
 import './Contacts.css'
 import React from "react";
+import Contact from './Contact';
 
 class Contacts extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contacts: props.contacts,
-            selected: props.selected,
+            contacts: [],
+            selected: -1,
         }
+    }
+
+    componentDidMount() {
+        this.loadContacts();
+    }
+
+    loadContacts() {
+        this.setState({
+            contacts: [...Array(8).keys()].map(key => <Contact username={"user" + (key + 1)} />)
+        })
     }
 
     contactClicked(index) {
         const contactUsername = this.state.contacts[index].props.username;
         console.log("contact '" + contactUsername + "' was clicked")
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        nextState.contacts = nextProps.contacts;
-        nextState.selected = nextProps.selected;
-        return true;
     }
 
     render() {

@@ -6,29 +6,15 @@ import Menu from '../Menu';
 import Input from '../Input';
 
 class LeftFrame extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            contacts: props.contacts,
-            selected: props.selected,
-        }
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        nextState.contacts = nextProps.contacts;
-        nextState.selected = nextProps.selected;
-        return true;
-    }
-
     render() {
         return (
             <div>
                 <div className="left-header">
-                    <UserIcon sex={'NB'} username={"test123"} />
+                    <UserIcon sex={'NB'} username={"<testuser>"} />
                     <Menu color={'primary'} />
                 </div>
                 <Input />
-                <Contacts className="contacts" contacts={this.state.contacts} selected={this.state.selected} />
+                <Contacts />
             </div>
         )
     }

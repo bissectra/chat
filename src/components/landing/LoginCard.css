@@ -21,16 +21,13 @@ input[type=submit] {
     background-color: white;
     color: black;
     border: 1px solid;
-    /* padding: 1vh 2vh; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    /* font-size: 16px; */
 }
 
 .linkButton {
-    background-color: red;
     background-color: transparent;
     border: none;
     color: inherit;
