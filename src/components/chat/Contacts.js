@@ -23,17 +23,22 @@ class Contacts extends React.Component {
 
     contactClicked(index) {
         const contactUsername = this.state.contacts[index].props.username;
-        console.log("contact '" + contactUsername + "' was clicked")
+        console.log("contact '" + contactUsername + "' was clicked");
+        this.setState({ selected: index });
     }
 
     render() {
         return (
             <div className="contacts">
                 {this.state.contacts.map((contact, index) => (
-                    <div className={"contact" + (index === this.state.selected ? ' selected' : '')}
+                    <div className={"contact"}
                         key={index}
                         onClick={() => this.contactClicked(index)}
-                    >{contact}</div>
+                    >
+                        <div className={(index === this.state.selected ? "selected " : '') + "contact"}>
+                            {contact}
+                        </div>
+                    </div>
                 ))}
             </div>
         )
