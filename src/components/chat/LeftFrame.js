@@ -2,24 +2,23 @@ import './LeftFrame.css'
 import React from "react";
 import UserIcon from './UserIcon';
 import Contacts from './Contacts';
-import Contact from "./Contact";
 import Menu from '../Menu';
 import Input from '../Input';
 
 class LeftFrame extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { contacts: [] }
+        console.log(props);
+        this.state = {
+            contacts: props.contacts,
+            selected: props.selected,
+        }
     }
 
-    componentDidMount() {
-        this.loadContacts();
-    }
-
-    loadContacts() {
-        this.setState({
-            contacts: [...Array(8).keys()].map(key => <Contact username={"user" + (key + 1)} />)
-        })
+    shouldComponentUpdate(nextProps, nextState) {
+        nextState.contacts = nextProps.contacts;
+        nextState.selected = nextProps.selected;
+        return true;
     }
 
     render() {
@@ -30,7 +29,7 @@ class LeftFrame extends React.Component {
                     <Menu color={'primary'} />
                 </div>
                 <Input />
-                <Contacts className="contacts" contacts={this.state.contacts} />
+                <Contacts className="contacts" contacts={this.state.contacts} selected={this.state.selected} />
             </div>
         )
     }

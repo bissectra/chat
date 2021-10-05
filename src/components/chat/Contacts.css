@@ -2,3 +2,11 @@
     height: 83vh;
     overflow-y: auto;
 }
+
+/* .contact {
+    background-color: teal;
+} */
+
+.contact.selected {
+    background-color: teal;
+}

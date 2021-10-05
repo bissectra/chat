@@ -4,7 +4,10 @@ import React from "react";
 class Contacts extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { contacts: props.contacts }
+        this.state = {
+            contacts: props.contacts,
+            selected: props.selected,
+        }
     }
 
     contactClicked(index) {
@@ -14,6 +17,7 @@ class Contacts extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         nextState.contacts = nextProps.contacts;
+        nextState.selected = nextProps.selected;
         return true;
     }
 
@@ -21,7 +25,7 @@ class Contacts extends React.Component {
         return (
             <div className="contacts">
                 {this.state.contacts.map((contact, index) => (
-                    <div className="contact"
+                    <div className={"contact" + (index === this.state.selected ? ' selected' : '')}
                         key={index}
                         onClick={() => this.contactClicked(index)}
                     >{contact}</div>

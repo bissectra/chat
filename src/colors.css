@@ -1,6 +1,7 @@
 :root {
     --primaryColor: maroon;
     --primaryColorVariant: #b91c36;
+    --primaryColorVariant2: var(--primaryColor);
     --primaryColorLight: #D03D56;
     --secondaryColor: orange;
     --secondaryColorVariant: #fcc049;
