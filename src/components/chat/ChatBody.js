@@ -14,7 +14,7 @@ class ChatBody extends React.Component {
                         <LeftFrame />
                     </div>
                     <div className="right-frame">
-                        <RightFrame />
+                        <RightFrame me={"<myUsername>"} contact={"<contactUsername>"}/>
                     </div>
                 </div>
             </div>
