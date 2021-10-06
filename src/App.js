@@ -17,13 +17,13 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.userIsLogged) {
+    /* if (!this.state.userIsLogged) {
       return (
         <div className="App">
           <Landing initialPage={'signUp'} />
         </div>
       );
-    }
+    } */
     return (
       <div className="App">
         <ChatBody />

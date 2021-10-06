@@ -1,4 +1,5 @@
 import './TypingField.css'
+import axios from "axios";
 import React from "react";
 
 class TypingField extends React.Component {
@@ -17,10 +18,21 @@ class TypingField extends React.Component {
     handleSendMessage = () => {
         if(this.state.text !== ""){
             this.props.handleMessagesChanged(this.state.text)
+            this.saveMessage(this.state.text)
             this.setState({text: ""})
         }
     }
-    
+
+    saveMessage(newmessage){
+        axios.put("http://localhost:3001/conversation/615cbcb993a48d7375bd4c0f", {
+            message: newmessage,
+        }).then((res) => {
+            console.log(res);
+        }).catch((e) => {
+            console.log(e);
+        })
+    }
+
     render() {
         return (
             <div className="main-typing">
