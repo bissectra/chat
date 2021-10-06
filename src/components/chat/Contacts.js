@@ -1,24 +1,33 @@
 import './Contacts.css'
+import Contact from './Contact'
 import React from "react";
 
 class Contacts extends React.Component {
     contactClicked(index) {
+        console.log("contact clicked")
         this.props.selectContactHandler(index);
     }
 
     render() {
+        let contacts = this.props.conversations.length === 0 ?
+            <h1>:(</h1> : this.props.conversations.map((conversation, index) => {
+                return (
+                    <div
+                        key={index}
+                        onClick={(event) => { this.contactClicked(index); }}
+                        className={'contact' + (this.props.selected === index ? ' selected' : '')}
+                    >
+                        <Contact
+                            token={this.props.token}
+                            contactId={conversation.users[1].user}
+                        />
+                    </div>
+                )
+            })
+
         return (
             <div className="contacts">
-                {this.props.contacts.map((contact, index) => (
-                    <div className={"contact"}
-                        key={index}
-                        onClick={() => this.contactClicked(index)}
-                    >
-                        <div className={(index === this.props.selected ? "selected " : '') + "contact"}>
-                            {contact}
-                        </div>
-                    </div>
-                ))}
+                {contacts}
             </div>
         )
     }

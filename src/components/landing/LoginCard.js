@@ -13,24 +13,22 @@ class LoginCard extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        console.log(this.state)
         this.login();
     }
 
-    async login() {
+    login() {
         axios.post("http://localhost:3000/user/login", {
             "email": this.state.usernameOrEmail,
             "password": this.state.password
         }).then((response) => {
-            console.log(response);
-            this.redirectToChat(response.data.user);
+            this.redirectToChat(response.data);
         }).catch((error) => {
             console.log(error);
         })
     }
 
-    redirectToChat = (userInfo) => {
-        this.props.pageChanger("chat", userInfo)
+    redirectToChat = (responseData) => {
+        this.props.pageChanger("chat", responseData)
     }
 
     redirectToSignUp = () => {

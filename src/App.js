@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      token: '',
       currentPage: 'login',
       user: {
         isLogged: false,
@@ -16,14 +17,15 @@ class App extends React.Component {
     }
   }
 
-  pageChanger = (page, userInfo) => {
+  pageChanger = (page, responseData) => {
     if (page === 'chat') {
+      const userInfo = responseData.user;
       this.setState({
+        token: responseData.token,
         user: { isLogged: true, ...userInfo }
       });
     }
     this.setState({ currentPage: page })
-    console.log(this.state)
   }
 
   componentDidMount() {
@@ -43,7 +45,7 @@ class App extends React.Component {
     }
     return (
       <div className="App">
-        <ChatBody user={this.state.user} />
+        <ChatBody user={this.state.user} token={this.state.token} />
       </div>
     )
   }

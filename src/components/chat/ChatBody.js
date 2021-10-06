@@ -3,44 +3,58 @@ import './../Menu.css';
 import React from "react";
 import LeftFrame from './LeftFrame';
 import RightFrame from './RightFrame';
-import Contact from './Contact';
+import axios from 'axios';
 
 class ChatBody extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            contacts: [],
             selected: -1,
+            conversations: [],
         }
     }
 
     componentDidMount() {
-        this.loadContacts();
+        this.getConversations();
     }
 
-    loadContacts() {
-        this.setState({
-            contacts: [...Array(8).keys()].map(key => <Contact username={"user" + (key + 1)} />)
-        })
+    async getConversations() {
+        axios
+            .get("http://localhost:3000/conversation", {
+                headers: {
+                    Authorization: 'Bearer ' + this.props.token,
+                }
+            })
+            .then((response) => {
+                this.setState({ conversations: response.data });
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
+    selectContactHandler = (index) => {
+        this.setState({ selected: index })
     }
 
     render() {
-        const rightFrameContact = this.state.selected !== -1 ?
-            this.state.contacts[this.state.selected].props.username : '';
         return (
             <div className="main-chat">
-                <div className="chat-header"></div>
+                <div className="chat-header" />
                 <div className="chat-frame">
                     <div className="left-frame">
                         <LeftFrame
+                            token={this.props.token}
+                            conversations={this.state.conversations}
                             contacts={this.state.contacts}
                             selected={this.state.selected}
-                            selectContactHandler={(index) => this.setState({ selected: index })}
+                            selectContactHandler={this.selectContactHandler}
                         />
                     </div>
                     <div className="right-frame">
                         <RightFrame
-                            contact={rightFrameContact}
+                            conversation={this.state.selected !== -1 ?
+                                this.state.conversations[this.state.selected] : {}}
                         />
                     </div>
                 </div>

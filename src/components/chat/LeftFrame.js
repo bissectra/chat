@@ -15,6 +15,8 @@ class LeftFrame extends React.Component {
                 </div>
                 <Input />
                 <Contacts
+                    token={this.props.token}
+                    conversations={this.props.conversations}
                     contacts={this.props.contacts}
                     selected={this.props.selected}
                     selectContactHandler={this.props.selectContactHandler}
