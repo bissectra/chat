@@ -15,25 +15,23 @@ class SignUpCard extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        console.log(this.state)
         this.signUp();
     }
 
-    async signUp() {
+    signUp() {
         axios.post("http://localhost:3000/user", {
             "username": this.state.username,
             "email": this.state.email,
             "password": this.state.password,
         }).then((response) => {
-            console.log(response);
+            this.redirectToLogin();
         }).catch((error) => {
             console.log(error);
         })
     }
 
-
-    redirectToLogin() {
-        console.log("redirected to login")
+    redirectToLogin = () => {
+        this.props.pageChanger("login")
     }
 
     render() {

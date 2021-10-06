@@ -1,13 +1,14 @@
 import "./Contact.css"
 import React from "react";
 import UserIcon from "./UserIcon"
+import axios from "axios";
 
 class Contact extends React.Component {
     constructor(props) {
         super(props)
         const now = new Date();
         this.state = {
-            contactUsername: props.username,
+            contactUsername: '',
             unreadCounter: Math.floor(Math.random() * 1000),
             lastMessage: {
                 authoredByCurrentUser: [false, true][Math.floor(Math.random() * 2)],
@@ -16,6 +17,25 @@ class Contact extends React.Component {
                 status: ['sending', 'sent', 'received'][Math.floor(Math.random() * 3)]
             },
         }
+    }
+
+    componentDidMount() {
+        this.getUsername()
+    }
+
+    getUsername() {
+        axios
+            .get(`http://localhost:3000/user/${this.props.contactId}`, {
+                headers: {
+                    Authorization: 'Bearer ' + this.props.token,
+                }
+            })
+            .then((response) => {
+                this.setState({ contactUsername: response.data.username });
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     formatDate(date) {
@@ -28,7 +48,6 @@ class Contact extends React.Component {
     }
 
     getUserSex() {
-        // console.log('function "getUserSex()" Not Implemented');
         return 'NB';
     }
 
@@ -58,7 +77,7 @@ class Contact extends React.Component {
                         <div className="user-icon">
                             <UserIcon
                                 username={this.state.contactUsername}
-                                sex={this.getUserSex(this.username)}
+                                sex={this.getUserSex(this.state.contactUsername)}
                             />
                         </div>
                     </div>

@@ -14,7 +14,7 @@ class UserIcon extends React.Component {
     }
 
     getSeed() {
-        const seed = String(Math.abs(hashCode((this.props.username))))
+        const seed = 'xxxxxxxx' + this.props.username
         return seed;
     }
 

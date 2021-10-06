@@ -31,9 +31,8 @@ class RightFrame extends React.Component {
     loadMessages() {
         this.setState({
             messages: [
-                <MessageBubble mine={false} text={"Hi, My name is " + this.props.contact + "."} />,
-                <MessageBubble mine={true} text={"Hello, I'm " + this.state.me + " :)"} />,
-                <MessageBubble mine={false} text={"This message contains line breaks.\nThis sentence should be below."} />,
+                <MessageBubble mine={false} text={"Eu te amo, João <3"} />,
+                <MessageBubble mine={true} text={"Eu também te amo, Maria <3 <3"} />,
             ]
         }, this.scrollToEnd);
     }
