@@ -9,7 +9,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       userIsLogged: false,
+      currentPage: 'login',
     }
+  }
+
+  pageChanger = (page) => {
+    this.setState({ currentPage: page })
   }
 
   componentDidMount() {
@@ -20,7 +25,10 @@ class App extends React.Component {
     if (!this.state.userIsLogged) {
       return (
         <div className="App">
-          <Landing initialPage={'signUp'} />
+          <Landing
+            page={this.state.currentPage}
+            pageChanger={this.pageChanger}
+          />
         </div>
       );
     }

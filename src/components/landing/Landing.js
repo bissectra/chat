@@ -4,27 +4,26 @@ import LoginCard from './LoginCard';
 import SignUpCard from './SignUpCard.js';
 
 class Landing extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { 'page': props.initialPage }
-    }
-
     render() {
         let inner = (
             <div className="main" >
-                Error: 'initialPage' prop must be set either to 'login' or to 'signUp'
+                Error: 'page' prop must be set either to 'login' or to 'signUp', currently set to '{this.props.page}'
             </div>
         )
-        if (this.state.page === 'login') {
+        if (this.props.page === 'login') {
             inner = (
                 <div className="main">
-                    <LoginCard />
+                    <LoginCard
+                        pageChanger={this.props.pageChanger}
+                    />
                 </div>
             )
-        } else if (this.state.page === 'signUp') {
+        } else if (this.props.page === 'signUp') {
             inner = (
                 <div className="main">
-                    <SignUpCard />
+                    <SignUpCard
+                        pageChanger={this.props.pageChanger}
+                    />
                 </div>
             )
         }
