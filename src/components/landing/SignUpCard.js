@@ -32,10 +32,6 @@ class SignUpCard extends React.Component {
         })
     }
 
-    redirectToChat = () => {
-        this.props.pageChanger("chat")
-    }
-
     redirectToLogin = () => {
         this.props.pageChanger("login")
     }

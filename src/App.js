@@ -14,6 +14,9 @@ class App extends React.Component {
   }
 
   pageChanger = (page) => {
+    if (page === 'chat') {
+      this.setState({ userIsLogged: true });
+    }
     this.setState({ currentPage: page })
   }
 
