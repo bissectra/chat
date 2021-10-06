@@ -23,14 +23,14 @@ class LoginCard extends React.Component {
             "password": this.state.password
         }).then((response) => {
             console.log(response);
-            this.redirectToChat();
+            this.redirectToChat(response.data.user);
         }).catch((error) => {
             console.log(error);
         })
     }
 
-    redirectToChat = () => {
-        this.props.pageChanger("chat")
+    redirectToChat = (userInfo) => {
+        this.props.pageChanger("chat", userInfo)
     }
 
     redirectToSignUp = () => {
