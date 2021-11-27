@@ -28,10 +28,6 @@ class App extends React.Component {
     this.setState({ currentPage: page })
   }
 
-  componentDidMount() {
-    document.title = "Chat App"
-  }
-
   render() {
     if (!this.state.user.isLogged) {
       return (
