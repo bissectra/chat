@@ -1,7 +1,7 @@
 import "./colors.css";
-import Landing from "./components/landing/Landing";
+import Landing from "./components/Landing";
 import React, { useState } from "react";
-import ChatBody from "./components/chat/ChatBody";
+import ChatBody from "./components/ChatBody";
 
 export default function App() {
   const [token, setToken] = useState("");

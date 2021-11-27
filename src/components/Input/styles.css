@@ -1,0 +1,55 @@
+.wrapper {
+  height: 8vh;
+  background-color: var(--primaryColorVariant);
+  position: relative;
+}
+
+.wrapper > hr {
+  margin-top: auto;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.bar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.bar {
+  margin: 0 1vw;
+  width: 100%;
+  height: 75%;
+  border-radius: 4vh;
+  background-color: var(--primaryColorLight);
+  border: none;
+  padding-left: 4.8vw;
+  padding-right: 2.5vw;
+  padding-top: 0.5vh;
+  font-size: 14px;
+  color: var(--textColorLightVariant);
+}
+
+.icon {
+  position: absolute;
+  width: var(--radius);
+  height: var(--radius);
+  border-radius: 50%;
+  z-index: 100;
+  background-color: var(--primaryColor);
+}
+
+#icon1 {
+  --radius: 4vh;
+  top: 2vh;
+  left: 2vw;
+}
+
+#icon2 {
+  --radius: 3vh;
+  top: 2.5vh;
+  left: 27vw;
+}

@@ -1,0 +1,28 @@
+.message {
+  margin: 1vw;
+  background-color: lightyellow;
+  border-radius: 1vw;
+  position: relative;
+  font-size: 14px;
+  max-width: 70%;
+}
+
+.not-mine.message {
+  margin-right: auto;
+}
+
+.mine.message {
+  margin-left: auto;
+}
+
+.message-text {
+  padding: 0.7em;
+}
+
+.mine.message > .message-text {
+  text-align: right;
+}
+
+.not-mine.message > .message-text {
+  text-align: left;
+}

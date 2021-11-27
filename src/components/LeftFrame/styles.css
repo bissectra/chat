@@ -1,0 +1,14 @@
+.left-header {
+  background-color: var(--primaryColor);
+  min-height: 9vh;
+  display: flex;
+  align-items: center;
+  padding: 0vh 1vw;
+}
+
+hr {
+  color: var(--textColorLight);
+  border-style: inset;
+  border-width: 1px;
+  margin: 0 auto;
+}
