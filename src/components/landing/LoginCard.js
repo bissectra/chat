@@ -27,8 +27,8 @@ class LoginCard extends React.Component {
         })
     }
 
-    redirectToChat = (responseData) => {
-        this.props.pageChanger("chat", responseData)
+    redirectToChat = ({token, user}) => {
+        this.props.pageChanger("chat", token, user)
     }
 
     redirectToSignUp = () => {

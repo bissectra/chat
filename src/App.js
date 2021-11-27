@@ -1,50 +1,26 @@
-import './App.css';
-import './colors.css'
-import Landing from './components/landing/Landing';
-import React from 'react';
-import ChatBody from './components/chat/ChatBody';
+import "./colors.css";
+import Landing from "./components/landing/Landing";
+import React, { useState } from "react";
+import ChatBody from "./components/chat/ChatBody";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      token: '',
-      currentPage: 'login',
-      user: {
-        isLogged: false,
-        email: '',
-      },
+export default function App() {
+  const [token, setToken] = useState("");
+  const [currentPage, setCurrentPage] = useState("login");
+  const [user, setUser] = useState({});
+  const [isLogged, setIsLogged] = useState(false);
+
+  function pageChanger(page, token, user) {
+    if (page === "chat") {
+      setToken(token);
+      setUser(user);
+      setIsLogged(true);
     }
+    setCurrentPage(page);
   }
 
-  pageChanger = (page, responseData) => {
-    if (page === 'chat') {
-      const userInfo = responseData.user;
-      this.setState({
-        token: responseData.token,
-        user: { isLogged: true, ...userInfo }
-      });
-    }
-    this.setState({ currentPage: page })
-  }
-
-  render() {
-    if (!this.state.user.isLogged) {
-      return (
-        <div className="App">
-          <Landing
-            page={this.state.currentPage}
-            pageChanger={this.pageChanger}
-          />
-        </div>
-      );
-    } 
-    return (
-      <div className="App">
-        <ChatBody user={this.state.user} token={this.state.token} />
-      </div>
-    )
-  }
+  return !isLogged ? (
+    <Landing page={currentPage} pageChanger={pageChanger} />
+  ) : (
+    <ChatBody user={user} token={token} />
+  );
 }
-
-export default App;
