@@ -1,17 +1,15 @@
 import axios from "axios";
 import { baseURL } from "../../constants";
 
-export default function signUp({ username, email, password }) {
+export default function signUp({ username, email, password }, callback) {
   axios
-    .post(`${baseURL}/user`, {
-      username: username,
-      email: email,
-      password: password,
-    })
+    .post(`${baseURL}/user`, { username, email, password })
     .then((response) => {
-      console.log("redirect to login", response);
+      if (response.status !== 201) {
+        console.log(response);
+        return;
+      }
+      callback();
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch((error) => console.log(error));
 }

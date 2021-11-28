@@ -6,8 +6,8 @@ import Login from "./routes/Login";
 import SignUp from "./routes/SignUp/index.jsx";
 
 export default function App() {
+  // Authentication
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
-
   const [user, setUser] = useState({});
   const setToken = (token) => setCookie("token", token, { path: "/" });
   const isLogged = !!cookies.token;

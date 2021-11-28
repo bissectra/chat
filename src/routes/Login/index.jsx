@@ -7,14 +7,14 @@ export default function Login({ isLogged, setToken, setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  if (isLogged) {
+    return <Navigate to="/" />;
+  }
+
   const submitHandler = (event) => {
     event.preventDefault();
     login({ email, password, setToken, setUser });
   };
-
-  if (isLogged) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <div className="Card">
