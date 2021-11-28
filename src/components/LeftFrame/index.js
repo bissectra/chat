@@ -3,7 +3,7 @@ import React from "react";
 import UserIcon from "../UserIcon";
 import Contacts from "../Contacts";
 import Menu from "../Menu";
-import Input from "../Input";
+import InputBar from "../InputBar";
 
 class LeftFrame extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class LeftFrame extends React.Component {
           <UserIcon sex={"NB"} username={"<testuser>"} />
           <Menu color={"primary"} />
         </div>
-        <Input />
+        <InputBar />
         <Contacts
           token={this.props.token}
           conversations={this.props.conversations}
