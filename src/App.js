@@ -1,26 +1,36 @@
-import "./colors.css";
-import Landing from "./components/Landing";
 import React, { useState } from "react";
-import ChatBody from "./components/ChatBody";
+import { useCookies } from "react-cookie";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./Main";
+import Login from "./routes/Login";
+import SignUp from "./routes/SignUp/index.jsx";
 
 export default function App() {
-  const [token, setToken] = useState("");
-  const [currentPage, setCurrentPage] = useState("login");
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
   const [user, setUser] = useState({});
-  const [isLogged, setIsLogged] = useState(false);
+  const setToken = (token) => setCookie("token", token, { path: "/" });
+  const isLogged = !!cookies.token;
+  const logout = () => {
+    setUser({});
+    removeCookie("token");
+  };
 
-  function pageChanger(page, token, user) {
-    if (page === "chat") {
-      setToken(token);
-      setUser(user);
-      setIsLogged(true);
-    }
-    setCurrentPage(page);
-  }
-
-  return !isLogged ? (
-    <Landing page={currentPage} pageChanger={pageChanger} />
-  ) : (
-    <ChatBody user={user} token={token} />
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Main isLogged={isLogged} user={user} logout={logout} />}
+        />
+        <Route
+          path="/login"
+          element={
+            <Login isLogged={isLogged} setToken={setToken} setUser={setUser} />
+          }
+        />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
