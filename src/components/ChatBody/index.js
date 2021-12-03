@@ -1,68 +1,33 @@
 import "./styles.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LeftFrame from "./../LeftFrame";
 import RightFrame from "./../RightFrame";
-import axios from "axios";
+import getConversations from "./getConversations";
 
-class ChatBody extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: -1,
-      conversations: [],
-    };
-  }
+export default function ChatBody({ token }) {
+  const [selected, setSelected] = useState(-1);
+  const [conversations, setConversations] = useState([]);
 
-  componentDidMount() {
-    this.getConversations();
-  }
+  useEffect(() => getConversations(token, setConversations), []);
 
-  async getConversations() {
-    axios
-      .get("http://localhost:3000/conversation", {
-        headers: {
-          Authorization: "Bearer " + this.props.token,
-        },
-      })
-      .then((response) => {
-        this.setState({ conversations: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  selectContactHandler = (index) => {
-    this.setState({ selected: index });
-  };
-
-  render() {
-    return (
-      <div className="main-chat">
-        <div className="chat-header" />
-        <div className="chat-frame">
-          <div className="left-frame">
-            <LeftFrame
-              token={this.props.token}
-              conversations={this.state.conversations}
-              contacts={this.state.contacts}
-              selected={this.state.selected}
-              selectContactHandler={this.selectContactHandler}
-            />
-          </div>
-          <div className="right-frame">
-            <RightFrame
-              conversation={
-                this.state.selected !== -1
-                  ? this.state.conversations[this.state.selected]
-                  : {}
-              }
-            />
-          </div>
+  return (
+    <div className="main-chat">
+      <div className="chat-header" />
+      <div className="chat-frame">
+        <div className="left-frame">
+          <LeftFrame
+            token={token}
+            conversations={conversations}
+            selected={selected}
+            selectContactHandler={(index) => setSelected(index)}
+          />
+        </div>
+        <div className="right-frame">
+          <RightFrame
+            conversation={selected !== -1 ? conversations[selected] : {}}
+          />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default ChatBody;
