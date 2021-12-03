@@ -1,10 +1,10 @@
-.wrapper {
+.input-wrapper {
     height: 8vh;
     background-color: var(--primaryColorVariant);
     position: relative;
 }
 
-.wrapper>hr {
+.input-wrapper hr {
     margin-top: auto;
     width: 100%;
     position: absolute;
