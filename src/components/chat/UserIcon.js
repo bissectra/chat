@@ -1,5 +1,4 @@
 import './UserIcon.css'
-import hashCode from '../../utils/hash';
 
 import React from 'react'
 
