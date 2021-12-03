@@ -1,8 +1,9 @@
 import axios from "axios";
+import { baseURL } from "../../constants";
 
 export default function getConversations(token, setConversations) {
   axios
-    .get("http://localhost:3000/conversation", {
+    .get(`${baseURL}/conversation`, {
       headers: {
         Authorization: "Bearer " + token,
       },
