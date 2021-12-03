@@ -1,5 +1,4 @@
 import './ChatBody.css';
-import './../Menu.css';
 import React from "react";
 import LeftFrame from './LeftFrame';
 import RightFrame from './RightFrame';
