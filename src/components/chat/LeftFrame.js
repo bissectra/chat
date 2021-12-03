@@ -2,8 +2,8 @@ import "./LeftFrame.css";
 import React from "react";
 import UserIcon from "./UserIcon";
 import Contacts from "./Contacts";
-import Menu from "../Menu";
-import Input from "../Input";
+import Menu from "./Menu";
+import Input from "./Input";
 
 class LeftFrame extends React.Component {
   render() {

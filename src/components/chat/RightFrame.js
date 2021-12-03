@@ -3,7 +3,7 @@ import TypingField from "./TypingField";
 import UserIcon from "./UserIcon";
 import React from "react";
 import MessageBubble from "./MessageBubble";
-import Menu from "../Menu";
+import Menu from "./Menu";
 
 class RightFrame extends React.Component {
   constructor(props) {
