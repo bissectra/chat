@@ -1,39 +1,55 @@
-import "./styles.css";
-import React from "react";
+import { useState } from "react";
 
-class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: false,
-      color: props.color,
-    };
-  }
-
-  menuIconClicked = (e) => {
-    this.setState((state, props) => {
-      return { active: !state.active };
-    });
+export default function Menu({ color }) {
+  const [active, setActive] = useState(false);
+  const toggle = () => {
+    console.log("togg", active);
+    setActive(!active);
   };
 
-  render() {
-    return (
-      <div
-        className={
-          "menu-icon" +
-          (this.state.active ? " active" : "") +
-          (" " + this.state.color)
-        }
-        onClick={this.menuIconClicked}
-      >
-        <div className="kebab">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-        </div>
+  return (
+    <div style={styles.menuIcon(color, active)} onClick={toggle}>
+      <div style={styles.kebab}>
+        <div style={styles.circle}></div>
+        <div style={styles.circle}></div>
+        <div style={styles.circle}></div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default Menu;
+const circleRadius = 4;
+const styles = {
+  circle: {
+    width: circleRadius,
+    height: circleRadius,
+    backgroundColor: "white",
+    borderRadius: "50%",
+  },
+  kebab: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "inherit",
+    height: "3vh",
+  },
+  menuIcon: (color, active) => {
+    let bgColor = null;
+    if (active) {
+      if (color === "primary") bgColor = "var(--primaryColorVariant)";
+      if (color === "secondary") bgColor = "var(--secondaryColorVariant)";
+    }
+    return {
+      marginLeft: "auto",
+      width: "6vh",
+      height: "6vh",
+      borderRadius: "50%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+      backgroundColor: bgColor,
+    };
+  },
+};
