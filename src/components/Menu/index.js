@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function Menu({ color }) {
   const [active, setActive] = useState(false);
   const toggle = () => {
-    console.log("togg", active);
     setActive(!active);
   };
 
