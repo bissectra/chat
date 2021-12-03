@@ -1,6 +1,7 @@
 import './TypingField.css'
 import axios from "axios";
 import React from "react";
+import { baseURL } from '../../constants';
 
 class TypingField extends React.Component {
 
@@ -24,8 +25,8 @@ class TypingField extends React.Component {
     }
 
     saveMessage(newmessage){
-        axios.put("http://localhost:3001/conversation/615cbcb993a48d7375bd4c0f", {
-            message: newmessage,
+        axios.put(`${baseURL}/conversation/615cbcb993a48d7375bd4c0f`, {
+            message:newmessage,
         }).then((res) => {
             console.log(res);
         }).catch((e) => {

@@ -3,6 +3,7 @@ import React from "react";
 import LeftFrame from './LeftFrame';
 import RightFrame from './RightFrame';
 import axios from 'axios';
+import { baseURL } from '../../constants';
 
 class ChatBody extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class ChatBody extends React.Component {
 
     async getConversations() {
         axios
-            .get("http://localhost:3000/conversation", {
+            .get(`${baseURL}/conversation`, {
                 headers: {
                     Authorization: 'Bearer ' + this.props.token,
                 }

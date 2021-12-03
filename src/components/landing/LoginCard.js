@@ -1,6 +1,7 @@
 import './LoginCard.css'
 import React from 'react';
 import axios from 'axios';
+import { baseURL } from '../../constants';
 
 class LoginCard extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class LoginCard extends React.Component {
     }
 
     login() {
-        axios.post("http://localhost:3000/user/login", {
+        axios.post(`${baseURL}/user/login`, {
             "email": this.state.usernameOrEmail,
             "password": this.state.password
         }).then((response) => {

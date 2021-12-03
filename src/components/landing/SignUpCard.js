@@ -1,6 +1,7 @@
 import './SignUpCard.css'
 import React from 'react';
 import axios from 'axios';
+import { baseURL } from '../../constants';
 
 class SignUpCard extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class SignUpCard extends React.Component {
     }
 
     signUp() {
-        axios.post("http://localhost:3000/user", {
+        axios.post(`${baseURL}/user`, {
             "username": this.state.username,
             "email": this.state.email,
             "password": this.state.password,

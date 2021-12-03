@@ -2,6 +2,7 @@ import "./Contact.css"
 import React from "react";
 import UserIcon from "./UserIcon"
 import axios from "axios";
+import { baseURL } from "../../constants";
 
 class Contact extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class Contact extends React.Component {
 
     getUsername() {
         axios
-            .get(`http://localhost:3000/user/${this.props.contactId}`, {
+            .get(`${baseURL}/user/${this.props.contactId}`, {
                 headers: {
                     Authorization: 'Bearer ' + this.props.token,
                 }
