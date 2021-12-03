@@ -1,15 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router";
+import ChatBody from "./components/ChatBody";
 
-export default function Main({ isLogged, user, logout }) {
+export default function Main({ token, isLogged, user, logout }) {
   if (!isLogged) {
     return <Navigate to="/login" />;
   }
 
-  return (
-    <div>
-      <span>Hi {user.username}! </span>
-      <button onClick={logout}>Logout</button>
-    </div>
-  );
+  return <ChatBody token={token} user={user} logout={logout} />;
 }

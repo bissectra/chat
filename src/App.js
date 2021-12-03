@@ -21,7 +21,14 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<Main isLogged={isLogged} user={user} logout={logout} />}
+          element={
+            <Main
+              token={cookies.token}
+              isLogged={isLogged}
+              user={user}
+              logout={logout}
+            />
+          }
         />
         <Route
           path="/login"
