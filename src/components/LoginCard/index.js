@@ -1,83 +1,55 @@
 import "./styles.css";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { baseURL } from "../../constants";
+import AuthInput from "../AuthInput";
 
-class LoginCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      usernameOrEmail: "",
-      password: "",
-    };
-  }
+export default function LoginCard({ pageChanger }) {
+  const [usernameOrEmail, set_usernameOrEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  submitHandler = (event) => {
-    event.preventDefault();
-    this.login();
+  const redirectToChat = ({ token, user }) => {
+    pageChanger("chat", token, user);
   };
 
-  login() {
+  function login() {
     axios
       .post(`${baseURL}/user/login`, {
-        email: this.state.usernameOrEmail,
-        password: this.state.password,
+        email: usernameOrEmail,
+        password: password,
       })
       .then((response) => {
-        this.redirectToChat(response.data);
+        redirectToChat(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  redirectToChat = ({ token, user }) => {
-    this.props.pageChanger("chat", token, user);
+  const redirectToSignUp = () => {
+    pageChanger("signUp");
   };
 
-  redirectToSignUp = () => {
-    this.props.pageChanger("signUp");
+  const submitHandler = (event) => {
+    event.preventDefault();
+    login();
   };
 
-  render() {
-    return (
-      <div className="Card">
-        <h1>Chat App</h1>
-        <form onSubmit={this.submitHandler}>
-          <input
-            type="text"
-            id="usernameOrEmail"
-            name="usernameOrEmail"
-            placeholder="Email"
-            onChange={(event) =>
-              this.setState({ usernameOrEmail: event.target.value })
-            }
-          ></input>
-          <br />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={(event) =>
-              this.setState({ password: event.target.value })
-            }
-          ></input>
-          <br />
-          <div id="login-button">
-            <input type="submit" value="Login" />
-          </div>
-        </form>
-        <span id="unregistered-user-text">
-          Don't have an account?&nbsp;
-          <button className="linkButton" onClick={this.redirectToSignUp}>
-            Click here
-          </button>
-          &nbsp;to Sign Up!
-        </span>
-      </div>
-    );
-  }
+  return (
+    <div className="Card">
+      <h1>Login</h1>
+      <form onSubmit={submitHandler}>
+        <AuthInput type="username" setter={set_usernameOrEmail} />
+        <AuthInput type="password" setter={setPassword} />
+        <input type="submit" value="Login" />
+      </form>
+      <span id="unregistered-user-text">
+        Don't have an account?&nbsp;
+        <button className="linkButton" onClick={redirectToSignUp}>
+          Click here
+        </button>
+        &nbsp;to Sign Up!
+      </span>
+    </div>
+  );
 }
-
-export default LoginCard;
