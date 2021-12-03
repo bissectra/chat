@@ -1,36 +1,36 @@
 .main {
-    position: relative;
-    background-color: white;
-    top: 15vh;
-    margin: auto;
-    padding: 2vh 20vh;
-    width: min-content;
-    border-radius: 0.5vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap
+  position: relative;
+  background-color: white;
+  top: 15vh;
+  margin: auto;
+  padding: 2vh 20vh;
+  width: min-content;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .wrapper {
-    position: relative;
-    background-color: transparent;
+  position: relative;
+  background-color: transparent;
 }
 
 #background {
-    position: absolute;
-    min-width: 100vw;
-    z-index: -100;
+  position: absolute;
+  min-width: 100vw;
+  z-index: -100;
 }
 
 .background-top {
-    position: relative;
-    min-height: 35vh;
-    background-color: var(--primaryColor);
+  position: relative;
+  min-height: 35vh;
+  background-color: var(--primaryColor);
 }
 
 .background-bottom {
-    position: relative;
-    min-height: 65vh;
-    background-color: var(--secondaryColor);
+  position: relative;
+  min-height: 65vh;
+  background-color: var(--secondaryColor);
 }

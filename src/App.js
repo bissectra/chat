@@ -1,35 +1,35 @@
-import './App.css';
-import './colors.css'
-import Landing from './components/landing/Landing';
-import React from 'react';
-import ChatBody from './components/chat/ChatBody';
+import "./App.css";
+import "./colors.css";
+import Landing from "./components/landing/Landing";
+import React from "react";
+import ChatBody from "./components/chat/ChatBody";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: '',
-      currentPage: 'login',
+      token: "",
+      currentPage: "login",
       user: {
         isLogged: false,
-        email: '',
+        email: "",
       },
-    }
+    };
   }
 
   pageChanger = (page, responseData) => {
-    if (page === 'chat') {
+    if (page === "chat") {
       const userInfo = responseData.user;
       this.setState({
         token: responseData.token,
-        user: { isLogged: true, ...userInfo }
+        user: { isLogged: true, ...userInfo },
       });
     }
-    this.setState({ currentPage: page })
-  }
+    this.setState({ currentPage: page });
+  };
 
   componentDidMount() {
-    document.title = "Chat App"
+    document.title = "Chat App";
   }
 
   render() {
@@ -42,12 +42,12 @@ class App extends React.Component {
           />
         </div>
       );
-    } 
+    }
     return (
       <div className="App">
         <ChatBody user={this.state.user} token={this.state.token} />
       </div>
-    )
+    );
   }
 }
 
