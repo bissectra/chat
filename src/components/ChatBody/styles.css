@@ -1,0 +1,24 @@
+.main-chat {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-frame {
+  background-color: white;
+  min-width: 100vw;
+  min-height: 100vh;
+  border-radius: 1rem;
+  display: flex;
+}
+
+.left-frame {
+  background-color: var(--primaryColorLight);
+  flex: 3;
+}
+
+.right-frame {
+  background-color: var(--secondaryColorLight);
+  flex: 7;
+}

@@ -1,0 +1,8 @@
+.contacts {
+  height: 83vh;
+  overflow-y: auto;
+}
+
+.selected.contact {
+  background-color: var(--primaryColorVariant2);
+}
