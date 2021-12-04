@@ -4,11 +4,11 @@ import LeftFrame from "./../LeftFrame";
 import RightFrame from "./../RightFrame";
 import getConversations from "./getConversations";
 
-export default function ChatBody({ token }) {
+export default function ChatBody() {
   const [selected, setSelected] = useState(-1);
   const [conversations, setConversations] = useState([]);
 
-  useEffect(() => getConversations(token, setConversations), []);
+  useEffect(() => getConversations(setConversations), []);
 
   return (
     <div className="main-chat">
@@ -16,7 +16,6 @@ export default function ChatBody({ token }) {
       <div className="chat-frame">
         <div className="left-frame">
           <LeftFrame
-            token={token}
             conversations={conversations}
             selected={selected}
             selectContactHandler={(index) => setSelected(index)}

@@ -3,14 +3,19 @@ import UserIcon from "../UserIcon";
 import Contacts from "../Contacts";
 import Menu from "../Menu";
 import Input from "../Input";
+import { useEffect, useState } from "react";
+import { getUser } from "../Private";
 
 export default function LeftFrame({
-  username,
-  token,
   conversations,
   selected,
   selectContactHandler,
 }) {
+  const [username, setUsername] = useState();
+  useEffect(() => {
+    const user = getUser();
+    setUsername(user.username);
+  });
   return (
     <div>
       <div className="left-header">
@@ -19,7 +24,6 @@ export default function LeftFrame({
       </div>
       <Input />
       <Contacts
-        token={token}
         conversations={conversations}
         selected={selected}
         selectContactHandler={selectContactHandler}
