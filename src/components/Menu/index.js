@@ -1,8 +1,16 @@
 import { useState } from "react";
 
+const logout = () => {
+  localStorage.setItem("token", "");
+  localStorage.setItem("user", "");
+  window.location.reload();
+};
+
 export default function Menu({ color }) {
   const [active, setActive] = useState(false);
   const toggle = () => {
+    //TODO: remover gambiarra do logout no onClick do Menu
+    logout();
     setActive(!active);
   };
 

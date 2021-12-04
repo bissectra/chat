@@ -1,38 +1,15 @@
 import "./styles.css";
 import React, { useState } from "react";
-import axios from "axios";
-import { baseURL } from "../../constants";
 import AuthInput from "../AuthInput";
+import login from "./login";
 
 export default function LoginCard({ togglePage }) {
   const [usernameOrEmail, set_usernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const redirectToChat = ({ token, user }) => {
-    togglePage();
-  };
-
-  function login() {
-    axios
-      .post(`${baseURL}/user/login`, {
-        email: usernameOrEmail,
-        password: password,
-      })
-      .then((response) => {
-        redirectToChat(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  const redirectToSignUp = () => {
-    togglePage();
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
-    login();
+    login({ email: usernameOrEmail, password });
   };
 
   return (
@@ -45,7 +22,7 @@ export default function LoginCard({ togglePage }) {
       </form>
       <span id="unregistered-user-text">
         Don't have an account?&nbsp;
-        <button className="linkButton" onClick={redirectToSignUp}>
+        <button className="linkButton" onClick={togglePage}>
           Click here
         </button>
         &nbsp;to Sign Up!
