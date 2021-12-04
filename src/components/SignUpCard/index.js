@@ -35,7 +35,7 @@ class SignUpCard extends React.Component {
   }
 
   redirectToLogin = () => {
-    this.props.pageChanger("login");
+    this.props.togglePage();
   };
 
   render() {

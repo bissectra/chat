@@ -4,12 +4,12 @@ import axios from "axios";
 import { baseURL } from "../../constants";
 import AuthInput from "../AuthInput";
 
-export default function LoginCard({ pageChanger }) {
+export default function LoginCard({ togglePage }) {
   const [usernameOrEmail, set_usernameOrEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const redirectToChat = ({ token, user }) => {
-    pageChanger("chat", token, user);
+    togglePage();
   };
 
   function login() {
@@ -27,7 +27,7 @@ export default function LoginCard({ pageChanger }) {
   }
 
   const redirectToSignUp = () => {
-    pageChanger("signUp");
+    togglePage();
   };
 
   const submitHandler = (event) => {
