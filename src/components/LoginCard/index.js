@@ -4,19 +4,19 @@ import AuthInput from "../AuthInput";
 import login from "./login";
 
 export default function LoginCard({ togglePage }) {
-  const [usernameOrEmail, set_usernameOrEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const submitHandler = (event) => {
     event.preventDefault();
-    login({ email: usernameOrEmail, password });
+    login({ username, password });
   };
 
   return (
     <div className="Card">
       <h1>Login</h1>
       <form onSubmit={submitHandler}>
-        <AuthInput type="username" setter={set_usernameOrEmail} />
+        <AuthInput type="username" setter={setUsername} />
         <AuthInput type="password" setter={setPassword} />
         <input type="submit" value="Login" />
       </form>

@@ -1,10 +1,10 @@
 import axios from "axios";
-import { baseURL } from "../../constants";
+import { baseURL, mockEmailDomain } from "../../constants";
 
-export default function login({ email, password }) {
+export default function login({ username, password }) {
   axios
     .post(`${baseURL}/user/login`, {
-      email,
+      email: `${username}@${mockEmailDomain}`,
       password,
     })
     .then((response) => {
