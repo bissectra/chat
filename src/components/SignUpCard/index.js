@@ -1,23 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
-import axios from "axios";
-import { baseURL, mockEmailDomain } from "../../constants";
 import AuthInput from "../AuthInput";
-
-const signUp = ({ password, username, togglePage }) => {
-  axios
-    .post(`${baseURL}/user`, {
-      username,
-      email: `${username}@${mockEmailDomain}`,
-      password,
-    })
-    .then((response) => {
-      togglePage();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+import signUp from "./signUp";
 
 export default function SignUpCard({ togglePage }) {
   const [username, setUsername] = useState("");
