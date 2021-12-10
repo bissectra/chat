@@ -29,7 +29,9 @@ const RightFrame = (props) => {
   }
   else{
     const messages = props.conversation.messages.map((message, index) => {
-      return <MessageBubble mine={false} text={message.text} />
+      const isMyMessage = props.myUser._id==message.user
+      const user = props.conversation.users.find((user) => user._id == message.user)
+      return <MessageBubble key={index} mine={isMyMessage} text={message.text} user={user}/>
     })
 
     return(
