@@ -4,7 +4,7 @@ import { getToken } from "../Private";
 
 export default function getConversations(setConversations) {
   axios
-    .get(`${baseURL}/conversation`, {
+    .get(`${baseURL}/conversationfromuser`, {
       headers: {
         Authorization: "Bearer " + getToken(),
       },

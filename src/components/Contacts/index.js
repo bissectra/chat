@@ -2,39 +2,34 @@ import "./styles.css";
 import Contact from "../Contact";
 import React from "react";
 
-class Contacts extends React.Component {
-  contactClicked(index) {
-    console.log("contact clicked");
-    this.props.selectContactHandler(index);
-  }
-
-  render() {
-    let contacts =
-      this.props.conversations.length === 0 ? (
-        <h1>:(</h1>
-      ) : (
-        this.props.conversations.map((conversation, index) => {
-          return (
-            <div
-              key={index}
-              onClick={(event) => {
-                this.contactClicked(index);
-              }}
-              className={
-                "contact" + (this.props.selected === index ? " selected" : "")
-              }
-            >
-              <Contact
-                token={this.props.token}
-                contactId={conversation.users[1].user}
-              />
-            </div>
-          );
-        })
-      );
-
-    return <div className="contacts">{contacts}</div>;
-  }
+const Contacts = (props) => {
+  const contacts = 
+    props.conversations.length === 0 ? (
+      <h1>:(</h1>
+    ) : (
+      props.conversations.map((conversation, index) => {
+        return (
+          <div
+            key={index}
+            onClick={ props.selectContactHandler(index) }
+            className={
+              "contact" + (props.selected === index ? " selected" : "")
+            }
+          >
+            <Contact
+              conversation={conversation}
+              contactId={conversation.users[1].user}
+            />
+          </div>
+        );
+      })
+    );
+    console.log(props.conversations)
+  return (
+    <div className="contacts">
+      {contacts}
+    </div>
+  )
 }
 
 export default Contacts;
