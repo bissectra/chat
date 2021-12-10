@@ -2,8 +2,9 @@ import "./styles.css";
 import React, { useState } from "react";
 import AuthInput from "../AuthInput";
 import login from "./login";
+import { Link } from 'react-router-dom';
 
-export default function LoginCard({ togglePage }) {
+export default function LoginCard() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,9 +23,11 @@ export default function LoginCard({ togglePage }) {
       </form>
       <span id="unregistered-user-text">
         Don't have an account?&nbsp;
-        <button className="linkButton" onClick={togglePage}>
-          Click here
-        </button>
+        <Link to="/signup">
+          <button className="linkButton">
+            Click here
+          </button>
+        </Link>
         &nbsp;to Sign Up!
       </span>
     </div>
