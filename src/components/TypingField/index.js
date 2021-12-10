@@ -15,6 +15,12 @@ class TypingField extends React.Component {
     this.setState({ text: event.target.value });
   };
 
+  handleKeyUp = (event) => {
+    if (event.code === "Enter") {
+      this.handleSendMessage();
+    }
+  };
+
   handleSendMessage = () => {
     if (this.state.text !== "") {
       this.props.handleMessagesChanged(this.state.text);
@@ -54,6 +60,7 @@ class TypingField extends React.Component {
               name="input-text"
               placeholder="Type your message"
               onChange={this.handleInputChange}
+              onKeyUp={this.handleKeyUp}
               value={this.state.text}
             />
             <input
