@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function SignUpCard() {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [matchPasswords, setMatchPasswords] = useState(true);
@@ -17,7 +18,7 @@ export default function SignUpCard() {
       setMatchPasswords(false);
       return;
     }
-    signUp({ username, password });
+    signUp({ email, username, password });
   };
 
   return (
@@ -25,6 +26,7 @@ export default function SignUpCard() {
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler}>
         <AuthInput type="username" setter={setUsername} />
+        <AuthInput type="email" setter={setEmail} />
         <AuthInput type="password" setter={setPassword} />
         <AuthInput type="password2" setter={setPassword2} />
         {matchPasswords === false ?

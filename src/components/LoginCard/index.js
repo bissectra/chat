@@ -2,24 +2,24 @@ import "./styles.css";
 import React, { useState } from "react";
 import AuthInput from "../AuthInput";
 import login from "./login";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import handleGoogleLogin from "./handleGoogleLogin";
 import { GoogleLogin } from "react-google-login";
 
 export default function LoginCard() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submitHandler = (event) => {
     event.preventDefault();
-    login({ username, password });
-  };  
+    login({ email, password });
+  };
 
   return (
     <div className="Card">
       <h1>Login</h1>
       <form onSubmit={submitHandler}>
-        <AuthInput type="username" setter={setUsername} />
+        <AuthInput type="email" setter={setEmail} />
         <AuthInput type="password" setter={setPassword} />
         <input type="submit" value="Login" />
       </form>
@@ -28,14 +28,12 @@ export default function LoginCard() {
         buttonText="Log in with Google"
         onSuccess={handleGoogleLogin}
         onFailure={handleGoogleLogin}
-        cookiePolicy={'single_host_origin'}
+        cookiePolicy={"single_host_origin"}
       />
       <span id="unregistered-user-text">
         Don't have an account?&nbsp;
         <Link to="/signup">
-          <button className="linkButton">
-            Click here
-          </button>
+          <button className="linkButton">Click here</button>
         </Link>
         &nbsp;to Sign Up!
       </span>
