@@ -3,7 +3,7 @@ import Contact from "../Contact";
 import React from "react";
 
 const Contacts = (props) => {
-  const contacts = 
+  const contacts =
     props.conversations.length === 0 ? (
       <h1>:(</h1>
     ) : (
@@ -25,11 +25,7 @@ const Contacts = (props) => {
         );
       })
     );
-  return (
-    <div className="contacts">
-      {contacts}
-    </div>
-  )
-}
+  return <div className="contacts">{contacts}</div>;
+};
 
 export default Contacts;

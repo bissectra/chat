@@ -15,7 +15,7 @@ export default function LeftFrame({
   useEffect(() => {
     const user = getUser();
     setUsername(user.username);
-  });
+  }, []);
   return (
     <div>
       <div className="left-header">

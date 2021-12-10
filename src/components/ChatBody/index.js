@@ -11,8 +11,8 @@ export default function ChatBody() {
   useEffect(() => getConversations(setConversations), []);
 
   const handleSelect = (index) => {
-    setSelected(index)
-  }
+    setSelected(index);
+  };
 
   return (
     <div className="main-chat">

@@ -7,7 +7,7 @@ const Contact = (props) => {
   let statusDiv = <div className={statusClassName}></div>;
 
   const lastMessage =
-    props.messages[0] != undefined ? props.messages[0].text : "";
+    props.messages[0] !== undefined ? props.messages[0].text : "";
 
   const formatDate = (time) => {
     const date = new Date(time);
