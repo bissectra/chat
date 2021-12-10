@@ -4,7 +4,6 @@ import UserIcon from "../UserIcon";
 import React from "react";
 import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
-import logout from "../../logout";
 
 class RightFrame extends React.Component {
   constructor(props) {
