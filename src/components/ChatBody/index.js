@@ -28,6 +28,7 @@ export default function ChatBody() {
         <div className="right-frame">
           <RightFrame
             conversation={selected !== -1 ? conversations[selected] : {}}
+            contactClicked={selected !== -1 ? true : false}
           />
         </div>
       </div>
