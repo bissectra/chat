@@ -9,10 +9,11 @@ import { GoogleLogin } from "react-google-login";
 export default function LoginCard() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [incorrectCredentials, setIncorrectCredentials] = useState(false);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    login({ email, password });
+    let success = login({ email, password }).then(success => setIncorrectCredentials(!success));
   };
 
   return (
@@ -21,6 +22,11 @@ export default function LoginCard() {
       <form onSubmit={submitHandler}>
         <AuthInput type="email" setter={setEmail} />
         <AuthInput type="password" setter={setPassword} />
+        {incorrectCredentials === true ? (
+          <p style={{ color: "red", fontSize: 14 }}>
+            Your credentials are incorrect.
+          </p>
+        ) : null}
         <input type="submit" value="Login" />
       </form>
       <GoogleLogin
