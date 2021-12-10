@@ -11,7 +11,8 @@ export default function login({ username, password }) {
       const { user, token } = response.data;
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-      window.location.reload();
+      console.log('aoi');
+      window.location = "/";
     })
     .catch((error) => {
       console.log(error);

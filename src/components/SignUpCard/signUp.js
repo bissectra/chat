@@ -1,7 +1,7 @@
 import axios from "axios";
 import { baseURL, mockEmailDomain } from "../../constants";
 
-export default function signUp({ password, username, togglePage }) {
+export default function signUp({ password, username }) {
   axios
     .post(`${baseURL}/user`, {
       username,
@@ -9,7 +9,7 @@ export default function signUp({ password, username, togglePage }) {
       password,
     })
     .then((response) => {
-      togglePage();
+      window.location = "/login";
     })
     .catch((error) => {
       console.log(error);

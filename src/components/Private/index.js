@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import Landing from "../Landing";
+import { Navigate } from 'react-router-dom';
 
 export default function Private({ children: element }) {
   const token = getToken();
   const isLogged = isValidToken(token);
 
-  if (!isLogged) return <Landing />;
+  if (!isLogged) window.location = "/login";
 
   return <Fragment>{element}</Fragment>;
 }
