@@ -63,7 +63,7 @@ class RightFrame extends React.Component {
     return (
       <div className="right-frame-wrapper">
         <div className="right-header">
-          <UserIcon sex={"NB"} username={this.props.contact} />
+          <UserIcon username={this.props.contact} />
           {this.props.contact}
           <Menu color={"secondary"} />
         </div>

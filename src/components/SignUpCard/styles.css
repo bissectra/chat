@@ -24,11 +24,3 @@ input[type="radio"] {
   margin: 0.5vh 0;
   width: 98.7%;
 }
-
-#sex-input {
-  display: flex;
-}
-
-#sex-input-content {
-  padding-left: 1vw;
-}
