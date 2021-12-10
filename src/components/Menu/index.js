@@ -1,27 +1,32 @@
 import { useState } from "react";
+import Dropdown from 'react-bootstrap/Dropdown';
 
-const logout = () => {
-  localStorage.setItem("token", "");
-  localStorage.setItem("user", "");
-  window.location.reload();
-};
-
-export default function Menu({ color }) {
+export default function Menu(props) {
   const [active, setActive] = useState(false);
   const toggle = () => {
-    //TODO: remover gambiarra do logout no onClick do Menu
-    logout();
     setActive(!active);
+    console.log(props.color)
   };
 
   return (
-    <div style={styles.menuIcon(color, active)} onClick={toggle}>
-      <div style={styles.kebab}>
-        <div style={styles.circle}></div>
-        <div style={styles.circle}></div>
-        <div style={styles.circle}></div>
-      </div>
-    </div>
+    <Dropdown style={{width: '100%', zIndex: 1000}}>
+        <Dropdown.Toggle bsPrefix="p-0" style={{backgroundColor: 'rgba(255, 255, 255, .0)', fontSize: '20px', boxShadow: '0 0 0 0 rgba(255, 255, 255, .0)', borderColor: 'rgba(255, 255, 255, .0)', float: 'right'}}>
+          <div style={styles.menuIcon(props.color, active)} onClick={toggle}>
+            <div style={styles.kebab}>
+              <div style={styles.circle}></div>
+              <div style={styles.circle}></div>
+              <div style={styles.circle}></div>
+            </div>
+          </div>
+        </Dropdown.Toggle>
+      <Dropdown.Menu>
+        {props.items.map((item) => {
+          return (
+            <Dropdown.Item style={{fontSize: '20px'}} onClick={item.action}>{item.name}</Dropdown.Item>
+          )
+        })}
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 

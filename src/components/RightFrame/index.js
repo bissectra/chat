@@ -50,6 +50,13 @@ class RightFrame extends React.Component {
   };
 
   render() {
+    let items = [
+      {
+        name: 'Sair',
+        action: 'teste'
+      },
+    ]
+
     if (!this.state.contactClicked) {
       return (
         <div className="right-frame-wrapper empty">
@@ -65,7 +72,7 @@ class RightFrame extends React.Component {
         <div className="right-header">
           <UserIcon username={this.props.contact} />
           {this.props.contact}
-          <Menu color={"secondary"} />
+          <Menu color={"secondary"} items={items} />
         </div>
         <div className="messages-field">
           {this.state.messages.map((message, index) => (

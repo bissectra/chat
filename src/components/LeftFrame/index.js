@@ -16,11 +16,26 @@ export default function LeftFrame({
     const user = getUser();
     setUsername(user.username);
   }, []);
+
+  let items = [
+    {
+      name: 'Perfil',
+      action: 'teste'
+    },
+    {
+      name: 'Sair',
+      action: () => {
+        localStorage.clear();
+        window.location = "/";
+      }
+    },
+  ]
+
   return (
     <div>
       <div className="left-header">
         <UserIcon username={username} />
-        <Menu color={"primary"} />
+        <Menu color={"primary"} items={items}/>
       </div>
       <Input />
       <Contacts

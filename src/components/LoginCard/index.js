@@ -13,7 +13,7 @@ export default function LoginCard() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let success = login({ email, password }).then(success => setIncorrectCredentials(!success));
+    login({ email, password }).then(success => setIncorrectCredentials(!success));
   };
 
   return (
