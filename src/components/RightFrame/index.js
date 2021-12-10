@@ -4,6 +4,7 @@ import UserIcon from "../UserIcon";
 import React from "react";
 import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
+import logout from "../../logout";
 
 class RightFrame extends React.Component {
   constructor(props) {
@@ -52,10 +53,13 @@ class RightFrame extends React.Component {
   render() {
     let items = [
       {
-        name: 'Sair',
-        action: 'teste'
+        name: "Logout",
+        action: () => {
+          localStorage.clear();
+          window.location = "/";
+        },
       },
-    ]
+    ];
 
     if (!this.state.contactClicked) {
       return (
@@ -72,7 +76,7 @@ class RightFrame extends React.Component {
         <div className="right-header">
           <UserIcon username={this.props.contact} />
           {this.props.contact}
-          <Menu color={"secondary"} items={items} />
+          <Menu items={items} />
         </div>
         <div className="messages-field">
           {this.state.messages.map((message, index) => (

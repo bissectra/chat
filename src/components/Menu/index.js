@@ -1,29 +1,24 @@
-import { useState } from "react";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 
-export default function Menu(props) {
-  const [active, setActive] = useState(false);
-  const toggle = () => {
-    setActive(!active);
-    console.log(props.color)
-  };
-
+export default function Menu({ bgColor, items }) {
   return (
-    <Dropdown style={{width: '100%', zIndex: 1000}}>
-        <Dropdown.Toggle bsPrefix="p-0" style={{backgroundColor: 'rgba(255, 255, 255, .0)', fontSize: '20px', boxShadow: '0 0 0 0 rgba(255, 255, 255, .0)', borderColor: 'rgba(255, 255, 255, .0)', float: 'right'}}>
-          <div style={styles.menuIcon(props.color, active)} onClick={toggle}>
-            <div style={styles.kebab}>
-              <div style={styles.circle}></div>
-              <div style={styles.circle}></div>
-              <div style={styles.circle}></div>
-            </div>
+    <Dropdown style={{ width: "100%", zIndex: 1000 }}>
+      <Dropdown.Toggle bsPrefix="p-0" style={styles.dd}>
+        <div style={styles.menuIcon(bgColor)}>
+          <div style={styles.kebab}>
+            <div style={styles.circle}></div>
+            <div style={styles.circle}></div>
+            <div style={styles.circle}></div>
           </div>
-        </Dropdown.Toggle>
+        </div>
+      </Dropdown.Toggle>
       <Dropdown.Menu>
-        {props.items.map((item) => {
+        {items.map((item) => {
           return (
-            <Dropdown.Item style={{fontSize: '20px'}} onClick={item.action}>{item.name}</Dropdown.Item>
-          )
+            <Dropdown.Item style={{ fontSize: "20px" }} onClick={item.action}>
+              {item.name}
+            </Dropdown.Item>
+          );
         })}
       </Dropdown.Menu>
     </Dropdown>
@@ -32,6 +27,13 @@ export default function Menu(props) {
 
 const circleRadius = 4;
 const styles = {
+  dd: {
+    backgroundColor: "rgba(255, 255, 255, .0)",
+    fontSize: "20px",
+    boxShadow: "0 0 0 0 rgba(255, 255, 255, .0)",
+    borderColor: "rgba(255, 255, 255, .0)",
+    float: "right",
+  },
   circle: {
     width: circleRadius,
     height: circleRadius,
@@ -46,12 +48,7 @@ const styles = {
     width: "inherit",
     height: "3vh",
   },
-  menuIcon: (color, active) => {
-    let bgColor = null;
-    if (active) {
-      if (color === "primary") bgColor = "var(--primaryColorVariant)";
-      if (color === "secondary") bgColor = "var(--secondaryColorVariant)";
-    }
+  menuIcon: (bgColor) => {
     return {
       marginLeft: "auto",
       width: "6vh",
