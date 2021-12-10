@@ -18,13 +18,12 @@ const Contacts = (props) => {
           >
             <Contact
               conversation={conversation}
-              contactId={conversation.users[1].user}
+              messages={conversation.messages}
             />
           </div>
         );
       })
     );
-    console.log(props.conversations)
   return (
     <div className="contacts">
       {contacts}
