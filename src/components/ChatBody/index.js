@@ -10,6 +10,10 @@ export default function ChatBody() {
 
   useEffect(() => getConversations(setConversations), []);
 
+  const handleSelect = (index) => {
+    setSelected(index)
+  }
+
   return (
     <div className="main-chat">
       <div className="chat-header" />
@@ -18,7 +22,7 @@ export default function ChatBody() {
           <LeftFrame
             conversations={conversations}
             selected={selected}
-            selectContactHandler={(index) => setSelected(index)}
+            selectContactHandler={handleSelect}
           />
         </div>
         <div className="right-frame">

@@ -11,12 +11,13 @@ const Contacts = (props) => {
         return (
           <div
             key={index}
-            onClick={ props.selectContactHandler(index) }
+            onClick={() => props.selectContactHandler(index)}
             className={
               "contact" + (props.selected === index ? " selected" : "")
             }
           >
             <Contact
+              index={index}
               conversation={conversation}
               messages={conversation.messages}
             />
