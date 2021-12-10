@@ -11,7 +11,7 @@ export default function ChatBody() {
   const [myUser, setMyUser] = useState({})
 
   useEffect(() => getConversations(setConversations), []);
-  useEffect(() => getMyUser(setMyUser), {});
+  useEffect(() => getMyUser(setMyUser), []);
 
   const handleSelect = (index) => {
     setSelected(index);
