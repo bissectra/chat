@@ -16,6 +16,6 @@ export default async function handleGoogleLogin(googleData) {
     const { user, token } = data;
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
-    window.location.reload();
+    window.location = "/";
   };
   
