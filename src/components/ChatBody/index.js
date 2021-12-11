@@ -4,6 +4,7 @@ import LeftFrame from "./../LeftFrame";
 import RightFrame from "./../RightFrame";
 import getConversations from "./getConversations";
 import getMyUser from "./getMyUser";
+import emitSocket from "./emitSocket";
 
 export default function ChatBody() {
   const [selected, setSelected] = useState(-1);
@@ -16,6 +17,11 @@ export default function ChatBody() {
     let messagesField = document.getElementsByClassName("messages-field")[0];
     messagesField.scrollTop = messagesField.scrollHeight;
   }, [conversations]);
+  useEffect(() => {
+    console.log('triggered')
+    setInterval(() => emitSocket(setConversations), 3000)
+  }, []);
+    
 
   const handleSelect = (index) => {
     setSelected(index);
@@ -33,6 +39,8 @@ export default function ChatBody() {
     updatedConversations[selected].messages.push(newMessage);
     setConversations(updatedConversations);
   };
+
+  // setInterval(emitSocket(setConversations), 100000)
 
   return (
     <div className="main-chat">

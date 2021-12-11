@@ -12,6 +12,7 @@ export default function AuthInput({ type, setter, placeholder, optional }) {
         placeholder={placeholder || type}
         onChange={(event) => setter(event.target.value)}
         required={!optional}
+        style={{marginBottom: 10}}
       />
       <br />
     </Fragment>
