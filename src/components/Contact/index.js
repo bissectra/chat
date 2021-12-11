@@ -23,7 +23,10 @@ const Contact = (props) => {
         </div>
         <div className="contact-text-section">
           <div className="contact-title">{props.conversation.name}</div>
-          <div className="contact-message">
+          <div
+            style={{ maxWidth: (window.innerWidth * 20) / 100 }}
+            className="contact-message"
+          >
             {statusDiv} {lastMessage}
           </div>
         </div>

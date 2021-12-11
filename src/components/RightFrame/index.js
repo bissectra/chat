@@ -25,7 +25,11 @@ const RightFrame = (props) => {
 
   return (
     <div className="right-frame-wrapper">
-      <RightHeader title={props.conversation.name} />
+      <RightHeader
+        title={props.conversation.name}
+        users={props.conversation.users}
+        myUser={props.myUser}
+      />
       <div className="messages-field">{messages}</div>
       <div className="typing-field">
         <TypingField
