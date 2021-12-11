@@ -11,6 +11,7 @@ const Unselected = () => (
 
 const styles = {
   welcomeText: {
+    height: "91vh",
     textAlign: "center",
     fontSize: 36,
     fontWeight: "bold",
