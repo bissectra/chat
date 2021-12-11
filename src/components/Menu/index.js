@@ -2,7 +2,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Menu({ bgColor, items }) {
   return (
-    <Dropdown style={{ width: "100%", zIndex: 1000 }}>
+    <Dropdown style={{ marginLeft: "auto", zIndex: 1000 }}>
       <Dropdown.Toggle bsPrefix="p-0" style={styles.dd}>
         <div style={styles.menuIcon(bgColor)}>
           <div style={styles.kebab}>
