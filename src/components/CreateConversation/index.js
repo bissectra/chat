@@ -98,15 +98,15 @@ const styles ={
     color: 'white'
   },
   usersContainer: {
-    backgroundColor: 'blue',
+    backgroundColor: 'green',
     display: 'flex',
-    justifyContent: 'start',
-    overflow: 'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
     marginBottom: 10,
-    scrollbarWidth: 'none'
+    width: '100%'
   },
   checkbox: {
-    backgroundColor: 'green',
     minWidth: 200,
     textAlign: 'center'
   },
