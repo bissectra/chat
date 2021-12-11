@@ -1,10 +1,10 @@
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default function Menu({ bgColor, items }) {
+export default function Menu({ items }) {
   return (
     <Dropdown style={{ marginLeft: "auto", zIndex: 1000 }}>
       <Dropdown.Toggle bsPrefix="p-0" style={styles.dd}>
-        <div style={styles.menuIcon(bgColor)}>
+        <div style={styles.menuIcon}>
           <div style={styles.kebab}>
             <div style={styles.circle}></div>
             <div style={styles.circle}></div>
@@ -34,7 +34,7 @@ const styles = {
   circle: {
     width: circleRadius,
     height: circleRadius,
-    backgroundColor: "white",
+    backgroundColor: "var(--primaryColorVariant)",
     borderRadius: "50%",
   },
   kebab: {
@@ -45,17 +45,14 @@ const styles = {
     width: "inherit",
     height: "3vh",
   },
-  menuIcon: (bgColor) => {
-    return {
-      marginLeft: "auto",
-      width: "6vh",
-      height: "6vh",
-      borderRadius: "50%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      cursor: "pointer",
-      backgroundColor: bgColor,
-    };
+  menuIcon: {
+    marginLeft: "auto",
+    width: "6vh",
+    height: "6vh",
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
   },
 };
