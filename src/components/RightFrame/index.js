@@ -6,28 +6,7 @@ import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
 
 const RightFrame = (props) => {
-
-  const sendNewMessage = (message) => {
-    console.log(message)
-    // let newMessages = this.state.messages;
-    // newMessages.push(<MessageBubble mine={true} text={message} />);
-    // this.setState({ messages: newMessages }, () => {
-    //   let messagesField = document.getElementsByClassName("messages-field")[0];
-    //   messagesField.scrollTo(0, messagesField.scrollHeight);
-    // });
-  };
-  const items = [
-    {
-      name: "Logout",
-      action: () => {
-        localStorage.clear();
-        window.location = "/";
-      },
-    },
-  ];
-
   if (!props.contactClicked) {
-
     return (
       <div className="right-frame-wrapper empty">
         <div className="right-header"></div>
@@ -36,29 +15,56 @@ const RightFrame = (props) => {
         </div>
       </div>
     );
-  }
-  else{
+  } else {
     const messages = props.conversation.messages.map((message, index) => {
-      const isMyMessage = props.myUser._id==message.user
-      const user = props.conversation.users.find((user) => user._id == message.user)
-      return <MessageBubble key={index} mine={isMyMessage} text={message.text} user={user}/>
-    })
+      const isMyMessage = props.myUser._id === message.user;
+      const user = props.conversation.users.find(
+        (user) => user._id === message.user
+      );
+      return (
+        <MessageBubble
+          key={index}
+          mine={isMyMessage}
+          text={message.text}
+          user={user}
+        />
+      );
+    });
 
-    return(
+    return (
       <div className="right-frame-wrapper">
-        <div className="right-header">
-          <UserIcon username={''} />
-          <Menu color={"secondary"} items={items} />
-        </div>
-        <div className="messages-field">
-          {messages}
-        </div>
+        <RightHeader title={props.conversation.name} />
+        <div className="messages-field">{messages}</div>
         <div className="typing-field">
-          <TypingField conversationId={props.conversation._id} myUser={props.myUser} handleMessagesChanged={sendNewMessage} />
+          <TypingField
+            conversationId={props.conversation._id}
+            myUser={props.myUser}
+            handleMessagesChanged={props.pushMyMessage}
+          />
         </div>
       </div>
-    )
+    );
   }
-}
+};
+
+const RightHeader = ({ title }) => (
+  <div className="right-header">
+    <UserIcon seed={title} />
+    <span style={{ marginLeft: "0.5em" }} className="contact-title">
+      {title}
+    </span>
+    <Menu items={items} />
+  </div>
+);
+
+const items = [
+  {
+    name: "Logout",
+    action: () => {
+      localStorage.clear();
+      window.location = "/";
+    },
+  },
+];
 
 export default RightFrame;

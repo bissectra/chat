@@ -1,9 +1,11 @@
 .message {
   margin: 1vw;
+  padding: 0.4em;
   background-color: lightyellow;
   border-radius: 1vw;
   position: relative;
   font-size: 14px;
+  min-width: 20%;
   max-width: 70%;
 }
 
@@ -25,4 +27,8 @@
 
 .not-mine.message > .message-text {
   text-align: left;
+}
+
+.message-author {
+  font-weight: bold;
 }
