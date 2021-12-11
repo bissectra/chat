@@ -2,6 +2,7 @@ import "./styles.css";
 import axios from "axios";
 import React from "react";
 import { baseURL } from "../../constants";
+import InputEmoji from "react-input-emoji";
 
 class TypingField extends React.Component {
   constructor(props) {
@@ -11,8 +12,12 @@ class TypingField extends React.Component {
     };
   }
 
+  handleOnEnter = () => {
+    this.handleKeyUp({code: "Enter"})
+  }
+
   handleInputChange = (event) => {
-    this.setState({ text: event.target.value });
+    this.setState({ text: event });
   };
 
   handleKeyUp = (event) => {
@@ -45,23 +50,17 @@ class TypingField extends React.Component {
   render() {
     return (
       <div className="main-typing">
-        <div className="emojis">
-          <img
-            className="emoji-image"
-            alt="emoji icon"
-            src="https://static.vecteezy.com/system/resources/previews/001/203/011/non_2x/emoji-png.png"
-          />
-        </div>
         <div className="input-field">
           <div className="inputs">
-            <input
+            <InputEmoji
+              value={this.state.text}
               className="typing-bar"
               type="text"
               name="input-text"
               placeholder="Type your message"
               onChange={this.handleInputChange}
-              onKeyUp={this.handleKeyUp}
-              value={this.state.text}
+              onEnter={this.handleOnEnter}
+              placeholder="Type a message"
             />
             <input
               className="send-button"
