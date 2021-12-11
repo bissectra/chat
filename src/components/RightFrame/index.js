@@ -54,7 +54,7 @@ const RightFrame = (props) => {
       <div className="right-frame-wrapper">
         <div className="right-header">
           <UserIcon username={""} />
-          <Menu color={"secondary"} items={items} />
+          <Menu items={items} />
         </div>
         <div className="messages-field">{messages}</div>
         <div className="typing-field">
