@@ -135,6 +135,6 @@ const styles ={
   },
   inputSearch: {
     width: '20%',
-    minWidth: 100
+    minWidth: 100,
   }
 }
