@@ -49,3 +49,8 @@ input[type="submit"] {
 #login-button {
   text-align: right;
 }
+
+.submitContainer {
+  display: flex;
+  justify-content: space-around;
+}

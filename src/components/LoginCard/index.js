@@ -29,15 +29,17 @@ export default function LoginCard() {
             Your credentials are incorrect.
           </p>
         ) : null}
-        <input type="submit" value="Login" />
+        <div className="submitContainer">
+          <input type="submit" value="Login" />
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="Log in with Google"
+            onSuccess={handleGoogleLogin}
+            onFailure={handleGoogleLogin}
+            cookiePolicy={"single_host_origin"}
+          />
+        </div>
       </form>
-      <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        buttonText="Log in with Google"
-        onSuccess={handleGoogleLogin}
-        onFailure={handleGoogleLogin}
-        cookiePolicy={"single_host_origin"}
-      />
       <span id="unregistered-user-text">
         Don't have an account?&nbsp;
         <Link to="/signup">
