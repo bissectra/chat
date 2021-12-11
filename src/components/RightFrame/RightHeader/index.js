@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Menu from "../../Menu";
 import UserIcon from "../../UserIcon";
+import ReactTooltip from "react-tooltip";
 
 const RightHeader = ({ title, users, myUser }) => {
   const usernames =
@@ -8,8 +9,7 @@ const RightHeader = ({ title, users, myUser }) => {
     users
       .filter((user) => user._id !== myUser._id)
       .map((user) => user.username)
-      .concat("You")
-      .join(", ");
+      .concat("You");
   return (
     <div className="right-header">
       {title && (
@@ -25,8 +25,10 @@ const RightHeader = ({ title, users, myUser }) => {
                 textOverflow: "ellipsis",
               }}
               className="contact-message"
+              data-tip={usernames.join("<br />")}
             >
-              {usernames}
+              {usernames.join(", ")}
+              <ReactTooltip multiline />
             </div>
           </div>
         </Fragment>
