@@ -1,6 +1,5 @@
 import "./styles.css";
 export default function Background({ children: inner }) {
-  const [w, h] = [window.innerWidth, window.innerHeight];
   return (
     <div className="wrapper">
       <div
