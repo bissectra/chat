@@ -80,7 +80,7 @@ const CreateConversation = () => {
             onChange={editSearchItem}
           />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={styles.form}>
           <div style={styles.usersContainer}>
             {others.map((user, index) => {
               return (
@@ -101,6 +101,7 @@ const CreateConversation = () => {
             value={groupName}
             style={styles.inputGroupName}
           />
+          <br />
           <input type="submit" value="Create Group" />
         </form>
       </Fragment>
@@ -111,8 +112,15 @@ const CreateConversation = () => {
 export default CreateConversation;
 
 const styles = {
+  form: {
+    textAlign: "center",
+  },
   mainContainer: {
     height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start",
     padding: 20,
     backgroundColor: "var(--primaryColorLight)",
     color: "var(--textColorLightVariant)",
@@ -124,7 +132,7 @@ const styles = {
     alignItems: "center",
     flexWrap: "wrap",
     marginBottom: 10,
-    width: "100%",
+    width: "80vw",
     borderRadius: 10,
   },
   checkbox: {
@@ -133,6 +141,7 @@ const styles = {
   },
   inputGroupName: {
     marginBottom: 10,
+    width: "20%",
   },
   searchContainer: {
     marginTop: 10,

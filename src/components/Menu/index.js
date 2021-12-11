@@ -34,7 +34,7 @@ const styles = {
   circle: {
     width: circleRadius,
     height: circleRadius,
-    backgroundColor: "var(--primaryColorVariant)",
+    backgroundColor: "var(--textColorLightVariant)",
     borderRadius: "50%",
   },
   kebab: {
