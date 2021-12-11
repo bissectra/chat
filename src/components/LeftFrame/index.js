@@ -28,13 +28,6 @@ export default function LeftFrame({
 
   let items = [
     {
-      name: "Logout",
-      action: () => {
-        localStorage.clear();
-        window.location = "/";
-      },
-    },
-    {
       name: "New Group",
       action: () => {
         window.location = "/createconversation";
@@ -46,6 +39,9 @@ export default function LeftFrame({
     <div>
       <div className="left-header">
         <UserIcon seed={username} />
+        <div style={{ marginLeft: "0.5em" }} className="contact-title">
+          {username}
+        </div>
         <Menu items={items} />
       </div>
       <Input handler={editSearchItem}/>
