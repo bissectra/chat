@@ -17,18 +17,10 @@
   margin-left: auto;
 }
 
-.message-text {
-  padding: 0.7em;
-}
-
 .mine.message > .message-text {
   text-align: right;
 }
 
 .not-mine.message > .message-text {
   text-align: left;
-}
-
-.message-author {
-  font-weight: bold;
 }

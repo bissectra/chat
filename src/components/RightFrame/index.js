@@ -26,6 +26,7 @@ const RightFrame = (props) => {
           key={index}
           mine={isMyMessage}
           text={message.text}
+          time={message.time}
           user={user}
         />
       );

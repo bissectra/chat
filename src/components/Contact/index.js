@@ -1,6 +1,7 @@
 import "./styles.css";
 import React from "react";
 import UserIcon from "../UserIcon";
+import { formatTime } from "../../utils";
 
 const Contact = (props) => {
   let statusClassName = "status-icon double-tick";
@@ -10,12 +11,6 @@ const Contact = (props) => {
     props.messages[props.messages.length - 1] !== undefined
       ? props.messages[props.messages.length - 1].text
       : "";
-
-  const formatTime = (time) => {
-    const leadingZero = (num) => `0${num}`.slice(-2);
-    const date = new Date(time);
-    return [date.getHours(), date.getMinutes()].map(leadingZero).join(":");
-  };
 
   return (
     <div>

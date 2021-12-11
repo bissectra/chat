@@ -1,14 +1,25 @@
 import "./styles.css";
 import React from "react";
+import { formatTime } from "../../utils";
 
 const MessageBubble = (props) => {
   return (
     <div className={(props.mine ? "" : "not-") + "mine message"}>
-      <span className="message-author">{props.user.username}</span>
-      <br />
-      <span className="message-text">{props.text}</span>
+      <div style={{ fontWeight: "bold" }}>{props.user.username}</div>
+      <div>
+        <span>{props.text} </span>
+        <span style={styles.time}>{formatTime(props.time)}</span>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  time: {
+    paddingLeft: "0.5em",
+    float: "right",
+    color: "red",
+  },
 };
 
 export default MessageBubble;
