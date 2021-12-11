@@ -73,7 +73,12 @@ const items = [
 ];
 
 const styles = {
-  welcomeText: { textAlign: "center", fontSize: 36, fontWeight: "bold" },
+  welcomeText: {
+    textAlign: "center",
+    fontSize: 36,
+    fontWeight: "bold",
+    justifyContent: "center",
+  },
 };
 
 export default RightFrame;
