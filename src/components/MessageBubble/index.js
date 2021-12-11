@@ -18,7 +18,7 @@ const styles = {
   time: {
     paddingLeft: "0.5em",
     float: "right",
-    color: "red",
+    color: "#666",
   },
 };
 
