@@ -22,7 +22,7 @@ const Contact = (props) => {
       <div className="contact-wrapper">
         <div className="contact-icon-section">
           <div className="user-icon">
-            <UserIcon username={props.conversation.name} />
+            <UserIcon seed={props.conversation.name || "random"} />
           </div>
         </div>
         <div className="contact-text-section">
