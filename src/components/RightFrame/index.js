@@ -8,6 +8,7 @@ import Menu from "../Menu";
 const RightFrame = (props) => {
 
   const sendNewMessage = (message) => {
+    console.log(message)
     // let newMessages = this.state.messages;
     // newMessages.push(<MessageBubble mine={true} text={message} />);
     // this.setState({ messages: newMessages }, () => {
@@ -53,7 +54,7 @@ const RightFrame = (props) => {
           {messages}
         </div>
         <div className="typing-field">
-          <TypingField handleMessagesChanged={sendNewMessage} />
+          <TypingField conversationId={props.conversation._id} myUser={props.myUser} handleMessagesChanged={sendNewMessage} />
         </div>
       </div>
     )
