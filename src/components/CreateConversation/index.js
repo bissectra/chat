@@ -44,7 +44,6 @@ const CreateConversation = () => {
   };
   
   const editSearchItem = (event) => {
-    console.log(usernames)
     setSearch(event.target.value)
   }
 
