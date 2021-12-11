@@ -21,10 +21,9 @@ export default function ChatBody() {
   useEffect(() => {
     setInterval(() => emitSocket(setConversations), checkMessageTimeout);
   }, []);
-    
 
-  const handleSelect = (index) => {
-    setSelected(index);
+  const handleSelect = (id) => {
+    setSelected(conversations.findIndex((conv) => conv._id === id));
   };
 
   const pushMyMessage = (message) => {

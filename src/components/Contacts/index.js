@@ -11,7 +11,7 @@ const Contacts = (props) => {
         return (
           <div
             key={index}
-            onClick={() => props.selectContactHandler(index)}
+            onClick={() => props.selectContactHandler(conversation._id)}
             className={
               "contact" + (props.selected === index ? " selected" : "")
             }
