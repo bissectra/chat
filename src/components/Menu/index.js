@@ -13,11 +13,11 @@ export default function Menu({ bgColor, items }) {
         </div>
       </Dropdown.Toggle>
       <Dropdown.Menu>
-        {items.map((item) => {
-          return (
-            <Dropdown.Item onClick={item.action}>{item.name}</Dropdown.Item>
-          );
-        })}
+        {items.map((item, index) => (
+          <Dropdown.Item key={index} onClick={item.action}>
+            {item.name}
+          </Dropdown.Item>
+        ))}
       </Dropdown.Menu>
     </Dropdown>
   );
