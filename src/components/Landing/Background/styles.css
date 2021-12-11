@@ -27,11 +27,11 @@
   position: relative;
   min-height: 35vh;
   background-color: var(--primaryColor);
-  /* background-color: #212529; */
+  background-color: #212529;
 }
 
 .background-bottom {
   position: relative;
   min-height: 65vh;
-  /* background-color: var(--primaryColorVariant); */
+  background-color: var(--primaryColorVariant);
 }
