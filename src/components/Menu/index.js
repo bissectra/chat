@@ -15,9 +15,7 @@ export default function Menu({ bgColor, items }) {
       <Dropdown.Menu>
         {items.map((item) => {
           return (
-            <Dropdown.Item style={{ fontSize: "20px" }} onClick={item.action}>
-              {item.name}
-            </Dropdown.Item>
+            <Dropdown.Item onClick={item.action}>{item.name}</Dropdown.Item>
           );
         })}
       </Dropdown.Menu>
@@ -29,7 +27,6 @@ const circleRadius = 4;
 const styles = {
   dd: {
     backgroundColor: "rgba(255, 255, 255, .0)",
-    fontSize: "20px",
     boxShadow: "0 0 0 0 rgba(255, 255, 255, .0)",
     borderColor: "rgba(255, 255, 255, .0)",
     float: "right",
