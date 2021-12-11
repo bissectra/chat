@@ -1,19 +1,26 @@
 import "./styles.css";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import InputEmoji from "react-input-emoji";
 import { useState } from "react";
 import saveMessage from "./saveMessage";
 
 const TypingField = (props) => {
+  const [text, setText] = useState("");
 
-  const [text, setText] = useState("")
+  const inputElement = useRef(null);
+
+  useEffect(() => {
+    if (inputElement.current) {
+      inputElement.current.focus();
+    }
+  }, []);
 
   const handleOnEnter = () => {
-    handleKeyUp({code: "Enter"})
-  }
+    handleKeyUp({ code: "Enter" });
+  };
 
   const handleInputChange = (event) => {
-    setText(event)
+    setText(event);
   };
 
   const handleKeyUp = (event) => {
@@ -26,7 +33,7 @@ const TypingField = (props) => {
     if (text !== "") {
       props.handleMessagesChanged(text);
       saveMessage(text, props.conversationId);
-      setText("")
+      setText("");
     }
   };
 
@@ -35,6 +42,7 @@ const TypingField = (props) => {
       <div className="input-field">
         <div className="inputs">
           <InputEmoji
+            ref={inputElement}
             value={text}
             className="typing-bar"
             type="text"
@@ -42,7 +50,7 @@ const TypingField = (props) => {
             placeholder="Type your message"
             onChange={handleInputChange}
             onEnter={handleOnEnter}
-            placeholder="Type a message"
+            autoFocus
           />
           <input
             className="send-button"
@@ -55,6 +63,6 @@ const TypingField = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default TypingField;
