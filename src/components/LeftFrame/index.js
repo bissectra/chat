@@ -37,6 +37,9 @@ export default function LeftFrame({
     <div>
       <div className="left-header">
         <UserIcon seed={username} />
+        <div style={{ marginLeft: "0.5em" }} className="contact-title">
+          {username}
+        </div>
         <Menu items={items} />
       </div>
       <Input />
