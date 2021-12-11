@@ -49,5 +49,5 @@
 
 .emoji-image:hover {
   cursor: pointer;
-  background-color: var(--secondaryColorLight);
+  background-color: var(--primaryColorLight);
 }

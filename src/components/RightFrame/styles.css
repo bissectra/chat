@@ -4,7 +4,7 @@
 }
 
 .right-header {
-  background-color: var(--secondaryColor);
+  background-color: var(--primaryColor);
   min-height: 9vh;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .typing-field {
-  background-color: var(--secondaryColorVariant);
+  background-color: var(--primaryColorVariant);
   min-height: 10vh;
   width: 100%;
   position: absolute;
@@ -25,6 +25,7 @@
   height: 81vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--primaryColorVariant);
 }
 
 .right-frame-wrapper.empty > .messages-field {

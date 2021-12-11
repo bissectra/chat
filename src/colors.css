@@ -1,11 +1,7 @@
 :root {
-  --primaryColor: maroon;
-  --primaryColorVariant: #b91c36;
-  --primaryColorVariant2: var(--primaryColor);
-  --primaryColorLight: #d03d56;
-  --secondaryColor: orange;
-  --secondaryColorVariant: #fcc049;
-  --secondaryColorLight: #ffd580;
-  --textColorLight: wheat;
-  --textColorLightVariant: whitesmoke;
+  --primaryColor: #2f1847;
+  --primaryColorVariant: #2f1847b2;
+  --primaryColorLight: #633A92;
+  --textColorLight: #BFACAA;
+  --textColorLightVariant: #E1E2EF;
 }
