@@ -7,7 +7,9 @@ const Contact = (props) => {
   let statusDiv = <div className={statusClassName}></div>;
 
   const lastMessage =
-    props.messages[0] !== undefined ? props.messages[0].text : "";
+    props.messages[props.messages.length - 1] !== undefined
+      ? props.messages[props.messages.length - 1].text
+      : "";
 
   const formatTime = (time) => {
     const leadingZero = (num) => `0${num}`.slice(-2);
@@ -27,9 +29,7 @@ const Contact = (props) => {
         <div className="contact-text-section">
           <div className="contact-title">{props.conversation.name}</div>
           <div className="contact-message">
-            <div>
-              {statusDiv} {lastMessage}
-            </div>
+            {statusDiv} {lastMessage}
           </div>
         </div>
         <div className="meta">
