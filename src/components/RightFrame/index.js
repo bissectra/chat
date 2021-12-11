@@ -6,16 +6,6 @@ import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
 
 const RightFrame = (props) => {
-  const items = [
-    {
-      name: "Logout",
-      action: () => {
-        localStorage.clear();
-        window.location = "/";
-      },
-    },
-  ];
-
   if (!props.contactClicked) {
     return (
       <div className="right-frame-wrapper empty">
@@ -43,10 +33,7 @@ const RightFrame = (props) => {
 
     return (
       <div className="right-frame-wrapper">
-        <div className="right-header">
-          <UserIcon username={""} />
-          <Menu items={items} />
-        </div>
+        <RightHeader title={props.conversation.name} />
         <div className="messages-field">{messages}</div>
         <div className="typing-field">
           <TypingField
@@ -59,5 +46,25 @@ const RightFrame = (props) => {
     );
   }
 };
+
+const RightHeader = ({ title }) => (
+  <div className="right-header">
+    <UserIcon seed={title} />
+    <span style={{ marginLeft: "0.5em" }} className="contact-title">
+      {title}
+    </span>
+    <Menu items={items} />
+  </div>
+);
+
+const items = [
+  {
+    name: "Logout",
+    action: () => {
+      localStorage.clear();
+      window.location = "/";
+    },
+  },
+];
 
 export default RightFrame;
