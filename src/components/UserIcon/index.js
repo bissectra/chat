@@ -1,8 +1,8 @@
 import { fixedEncodeURIComponent } from "../../utils";
 
-export default function UserIcon({ seed }) {
+export default function UserIcon(props) {
   const sprites = "jdenticon";
-  seed = fixedEncodeURIComponent(seed);
+  const seed = fixedEncodeURIComponent(props.seed);
   const url = `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`;
   return <div style={{ ...style, backgroundImage: url }} />;
 }
