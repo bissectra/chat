@@ -42,14 +42,16 @@ const CreateConversation = () => {
       .map((user) => user._id);
     createConvesation(userIds, groupName);
   };
-  
+
   const editSearchItem = (event) => {
-    setSearch(event.target.value)
-  }
+    setSearch(event.target.value);
+  };
 
   const dynamicSearch = () => {
-    return usernames.filter(user => user.username.toLowerCase().includes(search.toLowerCase()))
-  }
+    return usernames.filter((user) =>
+      user.username.toLowerCase().includes(search.toLowerCase())
+    );
+  };
 
   const others = dynamicSearch().filter((user) => {
     return user.username !== userData.username;
@@ -67,10 +69,16 @@ const CreateConversation = () => {
   return (
     <div style={styles.mainContainer}>
       <Fragment>
-        <Menu items={items} bgColor="red" />
+        <Menu items={items} />
         <h1>Add participants to the group</h1>
         <div style={styles.searchContainer}>
-          <input style={styles.inputSearch} type="text" placeholder="Search for user" value={search} onChange={editSearchItem} />
+          <input
+            style={styles.inputSearch}
+            type="text"
+            placeholder="Search for user"
+            value={search}
+            onChange={editSearchItem}
+          />
         </div>
         <form onSubmit={handleSubmit}>
           <div style={styles.usersContainer}>
@@ -102,39 +110,39 @@ const CreateConversation = () => {
 
 export default CreateConversation;
 
-const styles ={
+const styles = {
   mainContainer: {
-    height: '100vh',
+    height: "100vh",
     padding: 20,
-    backgroundColor: 'maroon',
-    color: 'white'
+    backgroundColor: "var(--primaryColorLight)",
+    color: "var(--textColorLightVariant)",
   },
   usersContainer: {
-    backgroundColor: 'green',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    backgroundColor: "var(--primaryColorVariant)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
     marginBottom: 10,
-    width: '100%',
-    borderRadius: 10
+    width: "100%",
+    borderRadius: 10,
   },
   checkbox: {
     minWidth: 200,
-    textAlign: 'center'
+    textAlign: "center",
   },
   inputGroupName: {
-    marginBottom: 10
+    marginBottom: 10,
   },
   searchContainer: {
     marginTop: 10,
     marginBottom: 10,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
   },
   inputSearch: {
-    width: '20%',
+    width: "20%",
     minWidth: 100,
-  }
-}
+  },
+};

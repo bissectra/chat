@@ -11,5 +11,5 @@ const style = {
   width: "6.5vh",
   height: "6.5vh",
   borderRadius: "50%",
-  backgroundColor: "white",
+  backgroundColor: "var(--primaryColorVariant)",
 };
