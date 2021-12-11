@@ -5,88 +5,59 @@ import React from "react";
 import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
 
-class RightFrame extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contactClicked: true,
-      me: "<me>",
-      messages: [],
-    };
-  }
+const RightFrame = (props) => {
 
-  componentDidMount() {
-    this.loadMessages();
-  }
-
-  scrollToEnd() {
-    let messagesField = document.getElementsByClassName("messages-field");
-    messagesField[0].scrollTo(0, messagesField[0].scrollHeight);
-  }
-
-  componentDidUpdate() {
-    //
-  }
-
-  loadMessages() {
-    this.setState(
-      {
-        messages: [
-          <MessageBubble mine={false} text={"Eu te amo, João <3"} />,
-          <MessageBubble mine={true} text={"Eu também te amo, Maria <3 <3"} />,
-        ],
-      },
-      this.scrollToEnd
-    );
-  }
-
-  sendNewMessage = (message) => {
-    let newMessages = this.state.messages;
-    newMessages.push(<MessageBubble mine={true} text={message} />);
-    this.setState({ messages: newMessages }, () => {
-      let messagesField = document.getElementsByClassName("messages-field")[0];
-      messagesField.scrollTo(0, messagesField.scrollHeight);
-    });
+  const sendNewMessage = (message) => {
+    console.log(message)
+    // let newMessages = this.state.messages;
+    // newMessages.push(<MessageBubble mine={true} text={message} />);
+    // this.setState({ messages: newMessages }, () => {
+    //   let messagesField = document.getElementsByClassName("messages-field")[0];
+    //   messagesField.scrollTo(0, messagesField.scrollHeight);
+    // });
   };
-
-  render() {
-    let items = [
-      {
-        name: "Logout",
-        action: () => {
-          localStorage.clear();
-          window.location = "/";
-        },
+  const items = [
+    {
+      name: "Logout",
+      action: () => {
+        localStorage.clear();
+        window.location = "/";
       },
-    ];
+    },
+  ];
 
-    if (!this.state.contactClicked) {
-      return (
-        <div className="right-frame-wrapper empty">
-          <div className="right-header"></div>
-          <div className="messages-field">
-            Choose a contact to start chatting!
-          </div>
-        </div>
-      );
-    }
+  if (!props.contactClicked) {
+
     return (
-      <div className="right-frame-wrapper">
-        <div className="right-header">
-          <UserIcon username={this.props.contact} />
-          {this.props.contact}
-          <Menu items={items} />
-        </div>
+      <div className="right-frame-wrapper empty">
+        <div className="right-header"></div>
         <div className="messages-field">
-          {this.state.messages.map((message, index) => (
-            <span key={index}>{message}</span>
-          ))}
-        </div>
-        <div className="typing-field">
-          <TypingField handleMessagesChanged={this.sendNewMessage} />
+          Choose a contact to start chatting!
         </div>
       </div>
     );
+  }
+  else{
+    const messages = props.conversation.messages.map((message, index) => {
+      const isMyMessage = props.myUser._id==message.user
+      const user = props.conversation.users.find((user) => user._id == message.user)
+      return <MessageBubble key={index} mine={isMyMessage} text={message.text} user={user}/>
+    })
+
+    return(
+      <div className="right-frame-wrapper">
+        <div className="right-header">
+          <UserIcon username={''} />
+          <Menu color={"secondary"} items={items} />
+        </div>
+        <div className="messages-field">
+          {messages}
+        </div>
+        <div className="typing-field">
+          <TypingField conversationId={props.conversation._id} myUser={props.myUser} handleMessagesChanged={sendNewMessage} />
+        </div>
+      </div>
+    )
   }
 }
 

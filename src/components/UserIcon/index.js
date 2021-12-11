@@ -1,6 +1,6 @@
-export default function UserIcon({ username }) {
-  const seed = "random";
+export default function UserIcon({ seed }) {
   const sprites = "jdenticon";
+  seed = encodeURI(seed);
   const url = `url(https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23ffffff)`;
   return <div style={{ ...style, backgroundImage: url }} />;
 }

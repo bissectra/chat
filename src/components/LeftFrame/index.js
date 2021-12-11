@@ -29,7 +29,7 @@ export default function LeftFrame({
   return (
     <div>
       <div className="left-header">
-        <UserIcon username={username} />
+        <UserIcon seed={username} />
         <Menu items={items} />
       </div>
       <Input />

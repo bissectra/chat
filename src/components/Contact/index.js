@@ -9,20 +9,19 @@ const Contact = (props) => {
   const lastMessage =
     props.messages[0] !== undefined ? props.messages[0].text : "";
 
-  const formatDate = (time) => {
+  const formatTime = (time) => {
+    const leadingZero = (num) => `0${num}`.slice(-2);
     const date = new Date(time);
-    const hour = date.getHours();
-    const minutes = date.getMinutes();
-    return hour + ":" + minutes;
+    return [date.getHours(), date.getMinutes()].map(leadingZero).join(":");
   };
 
   return (
     <div>
-      <hr />
+      <hr style={{ margin: 0 }} />
       <div className="contact-wrapper">
         <div className="contact-icon-section">
           <div className="user-icon">
-            <UserIcon username={props.conversation.name} />
+            <UserIcon seed={props.conversation.name || "random"} />
           </div>
         </div>
         <div className="contact-text-section">
@@ -34,7 +33,7 @@ const Contact = (props) => {
           </div>
         </div>
         <div className="meta">
-          <div className="date">{formatDate(props.conversation.updatedAt)}</div>
+          <div className="date">{formatTime(props.conversation.updatedAt)}</div>
           <div className="unread-counter"></div>
         </div>
       </div>
