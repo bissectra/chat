@@ -3,6 +3,8 @@ import { useState } from "react";
 import AuthInput from "../AuthInput";
 import signUp from "./signUp";
 import { Link } from "react-router-dom";
+import handleGoogleLogin from "../LoginCard/handleGoogleLogin";
+import { GoogleLogin } from "react-google-login";
 
 export default function SignUpCard() {
   const [username, setUsername] = useState("");
@@ -33,8 +35,15 @@ export default function SignUpCard() {
             Mismatched passwords!
           </span>
         ) : null}
-        <div id="login-button">
+        <div id="login-button" className="submitContainer">
           <input type="submit" value="Sign Up" />
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="Log in with Google"
+            onSuccess={handleGoogleLogin}
+            onFailure={handleGoogleLogin}
+            cookiePolicy={"single_host_origin"}
+          />
         </div>
       </form>
       <span id="unregistered-user-text">
