@@ -5,7 +5,9 @@ import { formatTime } from "../../utils";
 const MessageBubble = (props) => {
   return (
     <div className={(props.mine ? "" : "not-") + "mine message"}>
-      <div style={{ fontWeight: "bold" }}>{props.user.username}</div>
+      {!props.mine && (
+        <div style={{ fontWeight: "bold" }}>{props.user.username}</div>
+      )}
       <div>
         <span>{props.text} </span>
         <span style={styles.time}>{formatTime(props.time)}</span>

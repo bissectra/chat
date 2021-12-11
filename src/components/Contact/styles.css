@@ -32,6 +32,9 @@
 .contact-message {
   font-size: 14px;
   color: var(--textColorLight);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .meta {
