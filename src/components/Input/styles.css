@@ -33,6 +33,10 @@
   color: var(--textColorLightVariant);
 }
 
+.bar::placeholder {
+  color: rgba(255, 255, 255, .5)
+}
+
 .icon {
   position: absolute;
   width: var(--radius);

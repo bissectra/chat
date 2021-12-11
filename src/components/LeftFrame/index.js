@@ -11,11 +11,20 @@ export default function LeftFrame({
   selected,
   selectContactHandler,
 }) {
+  const [search, setSearch] = useState("");
   const [username, setUsername] = useState();
   useEffect(() => {
     const user = getUser();
     setUsername(user.username);
   }, []);
+
+  const editSearchItem = (event) => {
+    setSearch(event.target.value)
+  }
+
+  const dynamicSearch = () => {
+    return conversations.filter(conversation => conversation.name.toLowerCase().includes(search.toLowerCase()))
+  }
 
   let items = [
     {
@@ -42,9 +51,9 @@ export default function LeftFrame({
         </div>
         <Menu items={items} />
       </div>
-      <Input />
+      <Input handler={editSearchItem}/>
       <Contacts
-        conversations={conversations}
+        conversations={dynamicSearch()}
         selected={selected}
         selectContactHandler={selectContactHandler}
       />
