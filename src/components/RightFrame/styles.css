@@ -1,0 +1,33 @@
+.right-frame-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.right-header {
+  background-color: var(--primaryColor);
+  min-height: 9vh;
+  display: flex;
+  align-items: center;
+  padding: 0vh 1vw;
+}
+
+.typing-field {
+  background-color: var(--primaryColor);
+  min-height: 10vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.messages-field {
+  overflow-y: auto;
+  height: 81vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primaryColorVariant);
+}
+
+.right-frame-wrapper.empty > .messages-field {
+  overflow-y: initial;
+}

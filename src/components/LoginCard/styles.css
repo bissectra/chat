@@ -1,0 +1,56 @@
+.Card {
+  margin: "auto";
+}
+
+form {
+  text-align: left;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1vh;
+}
+
+input {
+  margin: 1vh 0;
+  width: 98%;
+}
+
+input[type="submit"] {
+  width: auto;
+  background-color: white;
+  color: black;
+  border: 1px solid;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.linkButton {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: blue;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
+
+#unregistered-user-text {
+  white-space: nowrap;
+}
+
+#login-button {
+  text-align: right;
+}
+
+.submitContainer {
+  display: flex;
+  justify-content: space-around;
+}
