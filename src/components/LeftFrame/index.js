@@ -4,7 +4,7 @@ import Contacts from "../Contacts";
 import Menu from "../Menu";
 import Input from "../Input";
 import { useEffect, useState } from "react";
-import { getUser } from "../Private";
+import { getUsername } from "../Private";
 
 export default function LeftFrame({
   conversations,
@@ -14,8 +14,8 @@ export default function LeftFrame({
   const [search, setSearch] = useState("");
   const [username, setUsername] = useState();
   useEffect(() => {
-    const user = getUser();
-    setUsername(user.username);
+    const username = getUsername();
+    setUsername(username);
   }, []);
 
   const editSearchItem = (event) => {

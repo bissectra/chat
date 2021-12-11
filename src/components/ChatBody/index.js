@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import LeftFrame from "./../LeftFrame";
 import RightFrame from "./../RightFrame";
 import getConversations from "./getConversations";
-import getMyUser from "./getMyUser";
 import emitSocket from "./emitSocket";
 import { checkMessageTimeout } from "../../constants";
+import { getUsername, getId } from "../Private";
 
 export default function ChatBody() {
   const [selected, setSelected] = useState(-1);
@@ -13,7 +13,9 @@ export default function ChatBody() {
   const [myUser, setMyUser] = useState({});
 
   useEffect(() => getConversations(setConversations), []);
-  useEffect(() => getMyUser(setMyUser), []);
+  useEffect(() => {
+    setMyUser({ _id: getId(), username: getUsername() });
+  }, []);
   useEffect(() => {
     let messagesField = document.getElementsByClassName("messages-field")[0];
     messagesField.scrollTop = messagesField.scrollHeight;

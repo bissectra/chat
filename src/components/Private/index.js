@@ -9,8 +9,18 @@ export default function Private({ children: element }) {
   return <Fragment>{element}</Fragment>;
 }
 
-export const getToken = () => localStorage.getItem("token");
-export const getUser = () => JSON.parse(localStorage.getItem("user"));
+export const getToken = () => {
+  const token = localStorage.getItem("token");
+  return token || "";
+};
+export const getUsername = () => {
+  const username = localStorage.getItem("username");
+  return username || "";
+};
+export const getId = () => {
+  const _id = localStorage.getItem("_id");
+  return _id || "";
+};
 
 // TODO: make a request to verify token in backend (not yet implemented)
 export const isValidToken = (token) => !!token;
