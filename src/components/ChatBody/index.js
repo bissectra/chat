@@ -5,6 +5,7 @@ import RightFrame from "./../RightFrame";
 import getConversations from "./getConversations";
 import getMyUser from "./getMyUser";
 import emitSocket from "./emitSocket";
+import { checkMessageTimeout } from "../../constants";
 
 export default function ChatBody() {
   const [selected, setSelected] = useState(-1);
@@ -18,8 +19,7 @@ export default function ChatBody() {
     messagesField.scrollTop = messagesField.scrollHeight;
   }, [conversations]);
   useEffect(() => {
-    console.log('triggered')
-    setInterval(() => emitSocket(setConversations), 3000)
+    setInterval(() => emitSocket(setConversations), checkMessageTimeout);
   }, []);
     
 
