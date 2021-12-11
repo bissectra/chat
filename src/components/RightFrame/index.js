@@ -6,15 +6,6 @@ import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
 
 const RightFrame = (props) => {
-  const sendNewMessage = (message) => {
-    console.log(message);
-    // let newMessages = this.state.messages;
-    // newMessages.push(<MessageBubble mine={true} text={message} />);
-    // this.setState({ messages: newMessages }, () => {
-    //   let messagesField = document.getElementsByClassName("messages-field")[0];
-    //   messagesField.scrollTo(0, messagesField.scrollHeight);
-    // });
-  };
   const items = [
     {
       name: "Logout",
@@ -61,7 +52,7 @@ const RightFrame = (props) => {
           <TypingField
             conversationId={props.conversation._id}
             myUser={props.myUser}
-            handleMessagesChanged={sendNewMessage}
+            handleMessagesChanged={props.pushMyMessage}
           />
         </div>
       </div>

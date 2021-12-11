@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LeftFrame from "./../LeftFrame";
 import RightFrame from "./../RightFrame";
 import getConversations from "./getConversations";
@@ -8,13 +8,30 @@ import getMyUser from "./getMyUser";
 export default function ChatBody() {
   const [selected, setSelected] = useState(-1);
   const [conversations, setConversations] = useState([]);
-  const [myUser, setMyUser] = useState({})
+  const [myUser, setMyUser] = useState({});
 
   useEffect(() => getConversations(setConversations), []);
   useEffect(() => getMyUser(setMyUser), []);
+  useEffect(() => {
+    let messagesField = document.getElementsByClassName("messages-field")[0];
+    messagesField.scrollTop = messagesField.scrollHeight;
+  }, [conversations]);
 
   const handleSelect = (index) => {
     setSelected(index);
+  };
+
+  const pushMyMessage = (message) => {
+    const newMessage = {
+      _id: "",
+      text: message,
+      time: Date.now(),
+      user: myUser._id,
+    };
+
+    let updatedConversations = [...conversations];
+    updatedConversations[selected].messages.push(newMessage);
+    setConversations(updatedConversations);
   };
 
   return (
@@ -30,6 +47,7 @@ export default function ChatBody() {
         </div>
         <div className="right-frame">
           <RightFrame
+            pushMyMessage={pushMyMessage}
             conversation={selected !== -1 ? conversations[selected] : {}}
             contactClicked={selected !== -1 ? true : false}
             myUser={myUser}
