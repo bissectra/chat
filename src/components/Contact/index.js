@@ -18,7 +18,7 @@ const Contact = (props) => {
 
   return (
     <div>
-      <hr />
+      <hr style={{ margin: 0 }} />
       <div className="contact-wrapper">
         <div className="contact-icon-section">
           <div className="user-icon">
