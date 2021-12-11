@@ -11,6 +11,7 @@ const CreateConversation = () => {
   const [usernames, setUsernames] = useState([]);
   const [userData, setUserData] = useState({});
   const [groupName, setGroupName] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getUsernamesAsync(setUsernames);
@@ -41,8 +42,17 @@ const CreateConversation = () => {
       .map((user) => user._id);
     createConvesation(userIds, groupName);
   };
+  
+  const editSearchItem = (event) => {
+    console.log(usernames)
+    setSearch(event.target.value)
+  }
 
-  const others = usernames.filter((user) => {
+  const dynamicSearch = () => {
+    return usernames.filter(user => user.username.toLowerCase().includes(search.toLowerCase()))
+  }
+
+  const others = dynamicSearch().filter((user) => {
     return user.username !== userData.username;
   });
 
@@ -60,6 +70,9 @@ const CreateConversation = () => {
       <Fragment>
         <Menu items={items} bgColor="red" />
         <h1>Add participants to the group</h1>
+        <div style={styles.searchContainer}>
+          <input style={styles.inputSearch} type="text" placeholder="Search for user" value={search} onChange={editSearchItem} />
+        </div>
         <form onSubmit={handleSubmit}>
           <div style={styles.usersContainer}>
             {others.map((user, index) => {
@@ -104,7 +117,8 @@ const styles ={
     alignItems: 'center',
     flexWrap: 'wrap',
     marginBottom: 10,
-    width: '100%'
+    width: '100%',
+    borderRadius: 10
   },
   checkbox: {
     minWidth: 200,
@@ -112,5 +126,16 @@ const styles ={
   },
   inputGroupName: {
     marginBottom: 10
+  },
+  searchContainer: {
+    marginTop: 10,
+    marginBottom: 10,
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  inputSearch: {
+    width: '20%',
+    minWidth: 100
   }
 }
