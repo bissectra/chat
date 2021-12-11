@@ -56,33 +56,61 @@ const CreateConversation = () => {
   ];
 
   return (
-    <Fragment>
-      <Menu items={items} bgColor="red" />
-      <h1>Add participants to the group</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {others.map((user, index) => {
-            return (
-              <label key={index}>
-                <Checkbox
-                  label={user.username}
-                  value={user.selected}
-                  onChange={() => handleChange(user._id)}
-                />
-              </label>
-            );
-          })}
-        </div>
-        <input
-          type="text"
-          placeholder="Group Name"
-          onChange={handleGroupNameOnChange}
-          value={groupName}
-        />
-        <input type="submit" value="Create Group" />
-      </form>
-    </Fragment>
+    <div style={styles.mainContainer}>
+      <Fragment>
+        <Menu items={items} bgColor="red" />
+        <h1>Add participants to the group</h1>
+        <form onSubmit={handleSubmit}>
+          <div style={styles.usersContainer}>
+            {others.map((user, index) => {
+              return (
+                <label key={index} style={styles.checkbox}>
+                  <Checkbox
+                    label={user.username}
+                    value={user.selected}
+                    onChange={() => handleChange(user._id)}
+                  />
+                </label>
+              );
+            })}
+          </div>
+          <input
+            type="text"
+            placeholder="Group Name"
+            onChange={handleGroupNameOnChange}
+            value={groupName}
+            style={styles.inputGroupName}
+          />
+          <input type="submit" value="Create Group" />
+        </form>
+      </Fragment>
+    </div>
   );
 };
 
 export default CreateConversation;
+
+const styles ={
+  mainContainer: {
+    height: '100vh',
+    padding: 20,
+    backgroundColor: 'maroon',
+    color: 'white'
+  },
+  usersContainer: {
+    backgroundColor: 'blue',
+    display: 'flex',
+    justifyContent: 'start',
+    overflow: 'auto',
+    marginBottom: 10,
+    scrollbarWidth: 'none'
+  },
+  checkbox: {
+    backgroundColor: 'green',
+    minWidth: 200,
+    textAlign: 'center'
+  },
+  inputGroupName: {
+    marginBottom: 10
+  }
+}

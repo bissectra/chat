@@ -19,6 +19,13 @@ export default function LeftFrame({
 
   let items = [
     {
+      name: "Logout",
+      action: () => {
+        localStorage.clear();
+        window.location = "/";
+      },
+    },
+    {
       name: "New Group",
       action: () => {
         window.location = "/createconversation";
