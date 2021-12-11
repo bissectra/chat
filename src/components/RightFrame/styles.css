@@ -25,6 +25,7 @@
   height: 81vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .right-frame-wrapper.empty > .messages-field {

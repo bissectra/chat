@@ -1,7 +1,7 @@
 import "./styles.css";
 import TypingField from "../TypingField";
 import UserIcon from "../UserIcon";
-import React from "react";
+import React, { Fragment } from "react";
 import MessageBubble from "../MessageBubble";
 import Menu from "../Menu";
 
@@ -9,8 +9,8 @@ const RightFrame = (props) => {
   if (!props.contactClicked) {
     return (
       <div className="right-frame-wrapper empty">
-        <div className="right-header"></div>
-        <div className="messages-field">
+        <RightHeader />
+        <div style={styles.welcomeText} className="messages-field">
           Choose a contact to start chatting!
         </div>
       </div>
@@ -49,10 +49,14 @@ const RightFrame = (props) => {
 
 const RightHeader = ({ title }) => (
   <div className="right-header">
-    <UserIcon seed={title} />
-    <span style={{ marginLeft: "0.5em" }} className="contact-title">
-      {title}
-    </span>
+    {title && (
+      <Fragment>
+        <UserIcon seed={title} />
+        <span style={{ marginLeft: "0.5em" }} className="contact-title">
+          {title}
+        </span>
+      </Fragment>
+    )}
     <Menu items={items} />
   </div>
 );
@@ -66,5 +70,9 @@ const items = [
     },
   },
 ];
+
+const styles = {
+  welcomeText: { textAlign: "center", fontSize: 36, fontWeight: "bold" },
+};
 
 export default RightFrame;
