@@ -1,13 +1,19 @@
 import "./styles.css";
-import React, { useState } from "react";
+import React from "react";
+import InputEmoji from "react-input-emoji";
+import { useState } from "react";
 import saveMessage from "./saveMessage";
 
 const TypingField = (props) => {
 
   const [text, setText] = useState("")
 
+  const handleOnEnter = () => {
+    handleKeyUp({code: "Enter"})
+  }
+
   const handleInputChange = (event) => {
-    setText(event.target.value)
+    setText(event)
   };
 
   const handleKeyUp = (event) => {
@@ -26,23 +32,17 @@ const TypingField = (props) => {
 
   return (
     <div className="main-typing">
-      <div className="emojis">
-        <img
-          className="emoji-image"
-          alt="emoji icon"
-          src="https://static.vecteezy.com/system/resources/previews/001/203/011/non_2x/emoji-png.png"
-        />
-      </div>
       <div className="input-field">
         <div className="inputs">
-          <input
+          <InputEmoji
+            value={text}
             className="typing-bar"
             type="text"
             name="input-text"
             placeholder="Type your message"
             onChange={handleInputChange}
-            onKeyUp={handleKeyUp}
-            value={text}
+            onEnter={handleOnEnter}
+            placeholder="Type a message"
           />
           <input
             className="send-button"
