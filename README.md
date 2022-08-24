@@ -1,35 +1,37 @@
 # Chat App Front
 
-Esse projeto foi criado com [Create React App](https://github.com/facebook/create-react-app).
+## Link to demo: http://warm-fortress-47680.herokuapp.com/
 
-## Autenticação (Entrega Série 9)
+This project was bootstraped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Rotas de Autenticação:
+## Authentatication
+
+### Routes:
 
 1. http://localhost:3000/login"
 2. http://localhost:3000/signup"
 
-### Autenticação Local
+### Local Authentatication
 
-Basta preencher o respectivo formulário corretamente e submetê-lo. Ocorre o redirecionamento de forma automática (do login para a aplicação, e do signup para o login).
+You have to fill in the form correctly and submit. It will auto-redirect, from login to the app, and from signup to login.
 
-### Autenticação com Google
+### Google Authentication
 
-Basta clicar no botão "Log in with Google", disponível em qualquer das duas rotas de autenticação acima, e seguir as instruções do componente de OAuth2.
+Click on the "Log in with Google" button, available in both auth routes above, and follow the OAuth2 component instructions.
 
-## Execução do projeto
+## Running the Project
 
-Siga os seguintes paços para executar o projeto:
+Follow the steps below:
 
 ### .env
 
-Peça o arquivo .env ao admin e adicione-o à raiz do projeto do front.
+Ask the admin for the .env file and add it to the root of the project in the frontend.
 
 ### `npm install`
 
-Para instalar dependências do projeto
+To install dependencies
 
 ### `npm start`
 
-Roda o app no modo de desenvolvimento.\
-Abra [http://localhost:3000](http://localhost:3000) para vê-lo no navegador.
+Runs the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to see it in the browser.
