@@ -1,7 +1,5 @@
 # Chat App Front
 
-## Link to demo: http://warm-fortress-47680.herokuapp.com/
-
 This project was bootstraped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Authentatication
